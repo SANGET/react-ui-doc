@@ -1,0 +1,67 @@
+{
+  "name": "@ukelli-ui/doc",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "",
+  "author": "Sanget",
+  "license": "MIT",
+  "keywords": [
+    "gatsby-theme"
+  ],
+  "scripts": {
+    "dev": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,md,mdx}\"",
+    "release": "standard-version && conventional-github-releaser --preset angular",
+    "generate:icons": "svgr -d src/components --icon --replace-attr-values \"#000=currentColor\" svgs"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.15.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^1.5.0",
+    "@mdx-js/react": "^1.5.0",
+    "@smooth-ui/core-sc": "^10.0.7",
+    "@ukelli-ui/doc": "*",
+    "@xstyled/styled-components": "^1.13.1",
+    "@xstyled/system": "^1.11.0",
+    "babel-plugin-styled-components": "^1.10.0",
+    "deepmerge": "^4.0.0",
+    "fs-extra": "^8.1.0",
+    "gatsby-image": "^2.2.23",
+    "gatsby-plugin-compile-es6-packages": "^2.1.0",
+    "gatsby-plugin-google-analytics": "^2.1.19",
+    "gatsby-plugin-manifest": "^2.2.20",
+    "gatsby-plugin-mdx": "^1.0.46",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
+    "gatsby-plugin-page-creator": "^2.1.27",
+    "gatsby-plugin-react-helmet": "^3.1.10",
+    "gatsby-plugin-resolve-src": "^2.0.0",
+    "gatsby-plugin-robots-txt": "^1.4.0",
+    "gatsby-plugin-sharp": "^2.2.27",
+    "gatsby-plugin-styled-components": "^3.1.8",
+    "gatsby-plugin-typescript": "^2.1.15",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
+    "gatsby-source-filesystem": "^2.1.28",
+    "gatsby-transformer-sharp": "^2.2.19",
+    "github-slugger": "^1.2.1",
+    "mdast-util-to-string": "^1.0.5",
+    "polished": "^3.2.0",
+    "prism-react-renderer": "^1.0.1",
+    "prismjs": "^1.16.0",
+    "react-helmet": "^5.2.0",
+    "react-live": "^2.1.2",
+    "styled-components": "^4.4.0",
+    "unist-util-visit": "^2.0.0"
+  },
+  "devDependencies": {
+    "@svgr/cli": "^4.3.3",
+    "@types/node": "^12.11.1",
+    "@types/react": "^16.9.9",
+    "@types/react-dom": "^16.9.2",
+    "gatsby": "^2.15.18",
+    "react": "^16.10.1",
+    "react-dom": "^16.10.1"
+  }
+}
