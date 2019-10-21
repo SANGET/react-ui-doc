@@ -2460,6 +2460,14 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-native@*":
+  version "0.60.21"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.60.21.tgz#81a41cae7b232f52ab3983d854f4a0b0df79531e"
+  integrity sha512-E7F+P/UG4Utu+kh8Hy544i0m4CzpHw1awNX6hVfkhlu4mXSlAn6KLZzKEkPBbHm7g1kspmZTiuP23HAKZpASPw==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@^16.8.12", "@types/react@^16.8.17", "@types/react@^16.8.6", "@types/react@^16.9.9":
   version "16.9.9"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.9.tgz#a62c6f40f04bc7681be5e20975503a64fe783c3a"
@@ -2472,6 +2480,15 @@
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
   integrity sha512-l42BggppR6zLmpfU6fq9HEa2oGPEI8yrSPL3GITjfRInppYFahObbIQOQK3UGxEnyQpltZLaPe75046NOZQikw==
+
+"@types/styled-components@^4.1.19":
+  version "4.1.19"
+  resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-4.1.19.tgz#535b455d7744fda1608c605df82c0800eda61a09"
+  integrity sha512-nDkoTQ8ItcJiyEvTa24TwsIpIfNKCG+Lq0LvAwApOcjQ8OaeOOCg66YSPHBePHUh6RPt1LA8aEzRlgWhQPFqPg==
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
+    csstype "^2.2.0"
 
 "@types/tmp@^0.0.32":
   version "0.0.32"
@@ -15792,10 +15809,10 @@ uid-number@0.0.6:
   resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
   integrity sha1-DqEOgDXo61uOREnwbaHHMGY7qoE=
 
-ukelli-ui@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/ukelli-ui/-/ukelli-ui-3.1.0.tgz#779d3c188f8ea8c7cedad3083b66fdba3558de1c"
-  integrity sha512-qOUnKUbcgZd7H2a6Sn425xcgdMMjFSVTpGsC9bt2yJAYF8JrJFb+eeIC1s/vXhYEGHmkjWGFRDga8i6SenOE+g==
+ukelli-ui@^3.1.0-hotfix0:
+  version "3.1.0-hotfix0"
+  resolved "https://registry.yarnpkg.com/ukelli-ui/-/ukelli-ui-3.1.0-hotfix0.tgz#1230a9201a4c2fae51dbed62893d097d4cb43b0a"
+  integrity sha512-H93e7/yMhckZTbHV4kZNUPJJHxPpZX8gOb+3wdMDaIHAfPkplpZW4nGP0VwxIrteLUO3NlUno37X7IPrZM6Qvw==
   dependencies:
     classnames "^2.2.6"
     flatpickr "^4.6.3"
