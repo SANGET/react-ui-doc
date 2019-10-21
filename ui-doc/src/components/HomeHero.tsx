@@ -1,7 +1,8 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import styled, { useColorMode } from '@xstyled/styled-components';
+import styled from 'styled-components';
+import { useColorMode } from '../utils/use-theme';
 
 const QUERY = graphql`
   query HomeHero {

@@ -1,7 +1,5 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
-import { theme, ThemeProvider } from '@smooth-ui/core-sc';
-// import { Header } from 'smooth-code-landers';
 
 const QUERY = graphql`
   query WebsiteHeader {
@@ -18,10 +16,11 @@ export function WebsiteHeader() {
     <StaticQuery
       query={QUERY}
       render={(data) => (data.site.siteMetadata.standalone === false ? (
-        <ThemeProvider theme={theme}>
-          {/* <Header variant="shadow" /> */}
-          {/* <div>Header</div> */}
-        </ThemeProvider>
+        <span></span>
+        // <ThemeProvider theme={theme}>
+        //   {/* <Header variant="shadow" /> */}
+        //   {/* <div>Header</div> */}
+        // </ThemeProvider>
       ) : null)
       }
     />

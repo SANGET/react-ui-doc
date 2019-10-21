@@ -1,5 +1,4 @@
-import styled, { css } from '@xstyled/styled-components';
-import { up, down } from '@xstyled/system';
+import styled from 'styled-components';
 
 export const Article = styled.article`
   > p {
@@ -11,14 +10,6 @@ export const Article = styled.article`
     &:first-of-type {
       margin-top: 15;
     }
-
-    ${up(
-    'lg',
-    css`
-        font-size: 16;
-        margin-top: 25;
-      `,
-  )}
   }
 
   /* Intro */
@@ -26,13 +17,6 @@ export const Article = styled.article`
     font-size: 18;
     font-weight: 300;
     color: subtitle;
-
-    ${up(
-    'xl',
-    css`
-        font-size: 24;
-      `,
-  )};
 
     a,
     strong {
@@ -59,16 +43,6 @@ export const Article = styled.article`
     font-weight: 600;
     margin-top: 40;
     margin-bottom: 30;
-
-    ${up(
-    'md',
-    css`
-        font-size: 60;
-        font-weight: 700;
-        margin-bottom: 50;
-        margin-top: 60;
-      `,
-  )};
   }
 
   > h2 {
@@ -78,13 +52,6 @@ export const Article = styled.article`
     padding-top: 40;
     line-height: 1.2;
     font-size: 20;
-
-    ${up(
-    'lg',
-    css`
-        font-size: 35;
-      `,
-  )};
   }
 
   > h1 + h2 {
@@ -95,42 +62,10 @@ export const Article = styled.article`
 
   > h3 {
     padding-top: 45;
-
-    ${down(
-    'sm',
-    css`
-        overflow-wrap: break-word;
-        word-break: break-word;
-      `,
-  )}
-
-    ${up(
-    'xl',
-    css`
-        font-size: 25;
-        line-height: 1.3;
-      `,
-  )}
   }
 
   > h3 {
     padding-top: 45;
-
-    ${down(
-    'sm',
-    css`
-        overflow-wrap: break-word;
-        word-break: break-word;
-      `,
-  )}
-
-    ${up(
-    'xl',
-    css`
-        font-size: 25;
-        line-height: 1.3;
-      `,
-  )}
   }
 
   > h4 {
@@ -159,15 +94,6 @@ export const Article = styled.article`
     font-size: 14;
     line-height: 1.45;
     border-radius: 3;
-
-    ${down(
-    'sm',
-    css`
-        margin-left: -20;
-        margin-right: -20;
-        border-radius: 0;
-      `,
-  )}
   }
 
   > code {

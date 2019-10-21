@@ -1,7 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
-import styled, { css } from '@xstyled/styled-components';
-import { up } from '@xstyled/system';
+import styled, { css } from 'styled-components';
 
 const QUERY = graphql`
   query Sidebar {
@@ -55,13 +54,6 @@ const pagesToNavGroups = (pages) => pages.reduce((groups, page) => {
 
 const Nav = styled.nav`
   padding: 0 20;
-
-  ${up(
-    'sm',
-    css`
-      padding-left: 40;
-    `,
-  )}
 `;
 
 const NavGroup = styled.div`

@@ -1,7 +1,5 @@
 import React from 'react';
-import styled, { css } from '@xstyled/styled-components';
-import { up, th } from '@xstyled/system';
-import { Grid } from '@smooth-ui/core-sc';
+import styled, { css } from 'styled-components';
 import { Sidebar } from './Sidebar';
 import { BaseLayout } from './BaseLayout';
 import { Article } from './Article';
@@ -32,7 +30,7 @@ const SidebarContainer = styled.div`
   opacity: 0;
   height: 100vh;
   width: 100vw;
-  transform: translateY(${th.size(50)});
+  transform: translateY(50px);
   pointer-events: none;
   overflow-y: auto;
 
@@ -42,46 +40,9 @@ const SidebarContainer = styled.div`
       transform: translateY(0);
       opacity: 1;
     `}
-
-  ${up(
-    'sm',
-    css`
-      overflow-y: visible;
-      height: auto;
-      pointer-events: auto;
-      transform: none;
-      width: auto;
-      opacity: 1;
-      position: relative;
-      transform: none;
-      flex: 0 0 ${th.size(180)};
-      margin-left: 16;
-    `,
-  )}
-
-  ${up(
-    'lg',
-    css`
-      flex: 0 0 ${th.size(230)};
-      margin-left: 50;
-    `,
-  )}
 `;
 
 const SidebarWrapper = styled.div`
-  ${up(
-    'sm',
-    css`
-      padding-top: 0;
-      position: fixed;
-      height: 100vh;
-      overflow-y: auto;
-      z-index: 2;
-      margin-right: -999;
-      padding-right: 999;
-      background-color: secondary-bg;
-    `,
-  )}
 `;
 
 const MenuButton = styled.button`
@@ -90,8 +51,8 @@ const MenuButton = styled.button`
   width: 60;
   height: 60;
   position: fixed;
-  right: ${th.size(8)};
-  bottom: ${th.size(8)};
+  right: ${8};
+  bottom: ${8};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -100,7 +61,7 @@ const MenuButton = styled.button`
   background-color: text;
   transition: base;
   transition-property: color;
-  box-shadow: ${th.color('menu-button-shadow')} 0 0 ${th.size(20)};
+  box-shadow: rgba(0,0,0,0.2) 0 0 ${20};
   appearance: none;
 
   &:focus {
@@ -128,13 +89,6 @@ const MenuButton = styled.button`
         transform: translate(-1px, -10px) rotate(180deg);
       }
     `}
-
-  ${up(
-    'sm',
-    css`
-      display: none;
-    `,
-  )}
 `;
 
 export function DocLayout({ children, ...props }) {

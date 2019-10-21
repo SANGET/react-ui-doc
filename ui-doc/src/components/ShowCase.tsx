@@ -1,4 +1,4 @@
-import styled from '@xstyled/styled-components'
+import styled from 'styled-components';
 
 export const ShowCase = styled.div`
   margin-top: 80;
@@ -18,4 +18,4 @@ export const ShowCase = styled.div`
     margin-bottom: 10;
     font-size: 34;
   }
-`
+`;

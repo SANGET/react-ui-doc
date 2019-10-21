@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@xstyled/styled-components';
+import styled from 'styled-components';
 import { WebsiteHeader } from './WebsiteHeader';
 import { ProjectHeader } from './ProjectHeader';
 import { Head } from './Head';
@@ -12,7 +12,7 @@ const Headers = styled.div`
   z-index: 10;
 `;
 
-const PageWrapper = styled.box`
+const PageWrapper = styled.div`
   background-color: bg;
   flex: 1;
 `;

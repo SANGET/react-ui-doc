@@ -1,6 +1,6 @@
 import React from 'react';
 import { transparentize } from 'polished';
-import { ThemeProvider as SCThemeProvider } from '@xstyled/styled-components';
+import { ThemeProvider as SCThemeProvider } from 'styled-components';
 import deepmerge from 'deepmerge';
 
 export const theme = {

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Grid } from '@smooth-ui/core-sc';
+import { Grid } from 'ukelli-ui/core/grid';
 import { Article } from './Article';
 
 export function NotFound() {
   return (
-    <Grid gutter={20}>
+    <Grid space={20}>
       <Article style={{ textAlign: 'center', overflow: 'hidden' }}>
         <h1>404</h1>
         <p style={{ textAlign: 'center', margin: '20px auto' }}>

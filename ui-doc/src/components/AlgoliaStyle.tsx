@@ -1,5 +1,4 @@
-import { createGlobalStyle } from '@xstyled/styled-components';
-import { th } from '@xstyled/system';
+import { createGlobalStyle } from 'styled-components';
 
 export const AlgoliaStyle = createGlobalStyle`
   .searchbox {
@@ -32,7 +31,6 @@ export const AlgoliaStyle = createGlobalStyle`
     border: 0;
     border-radius: 16px;
     box-shadow: inset 0 0 0 1px #cccccc;
-    background: ${th.color('bg')} !important;
     padding: 0;
     padding-right: 26px;
     padding-left: 32px;
@@ -61,7 +59,6 @@ export const AlgoliaStyle = createGlobalStyle`
   .searchbox__input:active {
     outline: 0;
     box-shadow: inset 0 0 0 1px #aaaaaa;
-    background: ${th.color('bg')};
   }
 
   .searchbox__input::-webkit-input-placeholder {
@@ -233,11 +230,8 @@ export const AlgoliaStyle = createGlobalStyle`
     content: '';
     width: 14px;
     height: 14px;
-    background: ${th.color('bg')};
     z-index: 1000;
     top: -7px;
-    border-top: 1px solid ${th.color('border')};
-    border-right: 1px solid ${th.color('border')};
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
     border-radius: 2px;
@@ -274,8 +268,6 @@ export const AlgoliaStyle = createGlobalStyle`
 
   .algolia-autocomplete .ds-dropdown-menu [class^='ds-dataset-'] {
     position: relative;
-    border: solid 1px ${th.color('border')};
-    background: ${th.color('bg')};
     border-radius: 4px;
     overflow: auto;
     padding: 0 8px 8px;
@@ -289,8 +281,6 @@ export const AlgoliaStyle = createGlobalStyle`
     display: block;
     position: relative;
     padding: 0 8px;
-    background: ${th.color('bg')};
-    color: ${th.color('text')};
     overflow: hidden;
   }
 
@@ -310,7 +300,6 @@ export const AlgoliaStyle = createGlobalStyle`
     .algolia-docsearch-suggestion--highlight {
     padding: 0 0 1px;
     background: inherit;
-    box-shadow: inset 0 -2px 0 0 ${th.color('primary')};
     color: inherit;
   }
 
@@ -319,7 +308,6 @@ export const AlgoliaStyle = createGlobalStyle`
     .algolia-docsearch-suggestion--highlight {
     padding: 0 0 1px;
     background: inherit;
-    box-shadow: inset 0 -2px 0 0 ${th.color('primary')};
     color: inherit;
   }
 
@@ -339,18 +327,15 @@ export const AlgoliaStyle = createGlobalStyle`
     top: 0;
     height: 100%;
     width: 1px;
-    background: ${th.color('border')};
     left: -1px;
   }
 
   .algolia-autocomplete .algolia-docsearch-suggestion--category-header {
     position: relative;
-    border-bottom: 1px solid ${th.color('border')};
     display: none;
     margin-top: 8px;
     padding: 4px 0;
     font-size: 1em;
-    color: ${th.color('text')};
   }
 
   .algolia-autocomplete .algolia-docsearch-suggestion--wrapper {
@@ -388,7 +373,6 @@ export const AlgoliaStyle = createGlobalStyle`
 
   .algolia-autocomplete .algolia-docsearch-suggestion--title {
     margin-bottom: 4px;
-    color: ${th.color('text')};
     font-size: 0.9em;
     font-weight: bold;
   }
@@ -535,7 +519,6 @@ export const AlgoliaStyle = createGlobalStyle`
     display: block;
     line-height: 1.4em;
     padding: 5.33333px 8px;
-    background: ${th.color('border')};
     font-size: 0.85em;
     opacity: 0.8;
   }
@@ -544,7 +527,6 @@ export const AlgoliaStyle = createGlobalStyle`
     .suggestion-layout-simple
     .algolia-docsearch-suggestion--text
     .algolia-docsearch-suggestion--highlight {
-    color: ${th.color('text')};
     font-weight: bold;
     box-shadow: none;
   }
@@ -589,7 +571,6 @@ export const AlgoliaStyle = createGlobalStyle`
       text-align: left;
       float: left;
       padding: 0;
-      color: ${th.color('text')};
       font-size: 0.9em;
       font-weight: bold;
       text-align: left;
