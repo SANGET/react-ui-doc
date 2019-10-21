@@ -1,7 +1,6 @@
 import React from 'react';
 import { transparentize } from 'polished';
 import { ThemeProvider as SCThemeProvider } from '@xstyled/styled-components';
-import { th } from '@xstyled/system';
 import deepmerge from 'deepmerge';
 
 export const theme = {
@@ -19,12 +18,12 @@ export const theme = {
     'editor-text': '#403f53',
     'editor-bg': '#f4f4f4',
     blockquote: '#ffe564',
-    'blockquote-bg': (p) => transparentize(0.7, th.color('blockquote')(p)),
+    'blockquote-bg': (p) => transparentize(0.7, '#CCC'),
     subtitle: '#6d6d6d',
     'home-hero-img-bg': 'transparent',
-    'nav-link': th.color('text'),
-    'nav-link-hover': (p) => transparentize(0.3, th.color('nav-link')(p)),
-    'menu-button-shadow': (p) => transparentize(0.7, th.color('text')(p)),
+    'nav-link': '#AAA',
+    'nav-link-hover': (p) => transparentize(0.3, '#CCC'),
+    'menu-button-shadow': (p) => transparentize(0.7, '#CCC'),
     modes: {
       dark: {
         primary: '#ff6042',

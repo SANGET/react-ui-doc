@@ -151,7 +151,7 @@ const dark = {
 
 const modeThemes = { light, dark };
 
-export default function getPrismTheme({ theme, mode }) {
+export default function getPrismTheme({ mode }) {
   // const p = { theme };
   return {
     // plain: {

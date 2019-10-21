@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import styled, { Box, css, useColorMode } from '@xstyled/styled-components';
-import { th, up } from '@xstyled/system';
-import { Grid } from '@smooth-ui/core-sc';
+import styled from 'styled-components';
+import { Grid } from 'ukelli-ui/core/grid';
 import { DocSearch } from './DocSearch';
 import GithubBrands from './icons/GithubBrands';
 import SunSolid from './icons/SunSolid';
 import MoonSolid from './icons/MoonSolid';
+import { useColorMode } from '../utils/use-theme';
 
 const QUERY = graphql`
   query Header {
@@ -35,6 +35,13 @@ const QUERY = graphql`
       }
     }
   }
+`;
+
+const Box = styled.div`
+  /* background-color: bg;
+  border-bottom: 1;
+  border-color: border;
+  padding: 16 0; */
 `;
 
 const Container = styled.div`
@@ -82,18 +89,9 @@ const Nav = styled.nav`
   mask-image: linear-gradient(
     to right,
     transparent,
-    ${th.color('text')} 5%,
-    ${th.color('text')} 95%,
     transparent
   );
   overflow-x: auto;
-
-  ${up(
-    'sm',
-    css`
-      mask-image: none;
-    `,
-  )}
 `;
 
 const NavList = styled.ul`
@@ -140,15 +138,11 @@ const modeIcons = {
   dark: SunSolid,
 };
 
-function getInverseMode(mode) {
-  return mode === 'light' ? 'dark' : 'light';
-}
-
 function ColorModeSwitcher() {
   const [mode, setMode] = useColorMode();
   const Icon = modeIcons[mode];
   return (
-    <button type="button" onClick={() => setMode(getInverseMode)}>
+    <button type="button" onClick={() => setMode()}>
       <Icon width="24" height="24" />
     </button>
   );
@@ -159,7 +153,7 @@ export function ProjectHeader() {
   return (
     <>
       <Container>
-        <Grid gutter={20}>
+        <Grid space={20}>
           <Header>
             <LogoLink to="/">
               <Img
@@ -168,7 +162,7 @@ export function ProjectHeader() {
               />
               <LogoText>{data.site.siteMetadata.title}</LogoText>
             </LogoLink>
-            <Box ml="auto">
+            <Box>
               {data.site.siteMetadata.algoliaDocSearch.enabled && (
                 <DocSearch {...data.site.siteMetadata.algoliaDocSearch} />
               )}

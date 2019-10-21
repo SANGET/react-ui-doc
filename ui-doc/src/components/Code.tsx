@@ -1,10 +1,5 @@
 import React from 'react';
-import styled, {
-  css,
-  ThemeContext,
-  useColorMode,
-} from '@xstyled/styled-components';
-import { up } from '@xstyled/system';
+import styled from 'styled-components';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import {
   LiveProvider,
@@ -14,6 +9,7 @@ import {
 } from 'react-live';
 import { mdx } from '@mdx-js/react';
 import getPrismTheme from './prismTheme';
+import { useColorMode } from '../utils/use-theme';
 
 const Editor = styled.div`
   background-color: editor-bg;
@@ -28,13 +24,6 @@ const Editor = styled.div`
   > textarea:focus {
     outline: none;
   }
-
-  ${up(
-    'sm',
-    css`
-      border-radius: 3;
-    `,
-  )}
 `;
 
 const LivePreview = styled(BaseLivePreview)`
@@ -100,9 +89,9 @@ function importToRequire(code) {
 }
 
 export function usePrismTheme() {
-  const theme = React.useContext(ThemeContext);
+  // const theme = React.useContext(ThemeContext);
   const [mode] = useColorMode();
-  return getPrismTheme({ theme, mode });
+  return getPrismTheme({ mode });
 }
 
 export function Code({
