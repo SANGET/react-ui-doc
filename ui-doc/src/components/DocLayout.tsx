@@ -1,10 +1,39 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { graphql } from 'gatsby';
 import { Sidebar } from './Sidebar';
 import { BaseLayout } from './BaseLayout';
 import { Article } from './Article';
 import { MenuProvider, MenuConsumer } from './MenuContext';
 import ChevronUpSolid from './icons/ChevronUpSolid';
+
+export const pageQuery = graphql`
+  query BlogPostQuery($id: String) {
+    allMdx {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            menu
+            name
+            route
+            title
+          }
+        }
+      }
+    }
+    mdx(id: { eq: $id }) {
+      id
+      body
+      frontmatter {
+        title
+      }
+    }
+  }
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -91,7 +120,9 @@ const MenuButton = styled.button`
     `}
 `;
 
-export function DocLayout({ children, ...props }) {
+export function DocLayout(data) {
+  const { children, ...props } = data;
+  console.log(data);
   return (
     <MenuProvider>
       <BaseLayout variant="light" {...props}>

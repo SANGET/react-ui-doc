@@ -4,10 +4,9 @@ module.exports = function config({
   description = '',
   siteUrl = '',
   author = '',
-  docPath = './docs',
-  pagePath = './pages',
-  basePath = './src',
-  imagePath = './images',
+  docPath = 'src/pages/docs',
+  pagePath = 'src/pages',
+  imagePath = 'images',
   menu = ['Usage'],
   nav = [{ title: 'Usage', url: '/docs/getting-started/' }],
   codeFundProperty = 268,
@@ -85,7 +84,7 @@ module.exports = function config({
         options: {
           defaultLayouts: {
             default: require.resolve('./src/layouts/default.tsx'),
-            docs: require.resolve('./src/layouts/docs.tsx'),
+            // docs: require.resolve('./src/layouts/docs.tsx'),
           },
           gatsbyRemarkPlugins: [
             {

@@ -10,19 +10,19 @@ exports.createPages = ({ graphql, actions }, options) => {
   return graphql(
     `
       {
-        docsRemark: allSitePage {
+        docMdx: allMdx {
           edges {
             node {
-              context {
-                frontmatter {
-                  menu
-                  name
-                  order
-                  route
-                  title
-                }
+              id
+              fields {
+                slug
               }
-              path
+              frontmatter {
+                menu
+                name
+                route
+                title
+              }
             }
           }
         }
@@ -34,13 +34,13 @@ exports.createPages = ({ graphql, actions }, options) => {
     }
 
     // Create docs pages.
-    const posts = result.data.docsRemark.edges;
+    const posts = result.data.docMdx.edges;
     posts.forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-      const next = index === 0 ? null : posts[index - 1].node;
+      // const previous = index === posts.length - 1 ? null : posts[index + 1].node;
+      // const next = index === 0 ? null : posts[index - 1].node;
       const { node } = post;
-      const docPath = node.path;
-      const { route } = node.context.frontmatter;
+      const docPath = node.fields.slug;
+      const { route } = node.frontmatter;
       const _route = route || docPath;
       if (!_route) return;
       // const layoutComponent = layoutMapper[post.node.frontmatter.layout];
@@ -49,24 +49,26 @@ exports.createPages = ({ graphql, actions }, options) => {
         path: _route,
         component: require.resolve('./src/layouts/docs.tsx'),
         context: {
+          id: node.id,
           slug: _route,
-          previous,
-          next,
+          frontmatter: node.frontmatter,
+          // previous,
+          // next,
         },
       });
     });
   });
 };
 
-// exports.onCreateNode = ({ node, actions, getNode }, options) => {
-//   const { createNodeField } = actions;
+exports.onCreateNode = ({ node, actions, getNode }, options) => {
+  const { createNodeField } = actions;
 
-//   if (node.internal.type === "SitePage" && node.context && node.context.id) {
-//     const value = createFilePath({ node, getNode });
-//     createNodeField({
-//       name: `slug`,
-//       node,
-//       value,
-//     });
-//   }
-// };
+  if (node.internal.type === "Mdx") {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: "slug",
+      node,
+      value,
+    });
+  }
+};

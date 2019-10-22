@@ -1,5 +1,4 @@
 import React from 'react';
-import { getColorModeInitScriptElement } from '@xstyled/styled-components';
 import { RootWrapper } from './src/components/RootWrapper';
 
 export const wrapRootElement = ({ element }, { theme }) => {
@@ -10,8 +9,6 @@ export const onRenderBody = (
   { setPreBodyComponents, setPostBodyComponents },
   { algoliaDocSearch },
 ) => {
-  setPreBodyComponents([getColorModeInitScriptElement()]);
-
   if (algoliaDocSearch) {
     setPostBodyComponents([
       <script

@@ -4,17 +4,19 @@ import styled, { css } from 'styled-components';
 
 const QUERY = graphql`
   query Sidebar {
-    allSitePage {
+    allSitePage: allMdx {
       edges {
         node {
           id
-          path
-          context {
-            frontmatter {
-              title
-              menu
-              order
-            }
+          fields {
+            slug
+          }
+          frontmatter {
+            menu
+            name
+            order
+            route
+            title
           }
         }
       }
@@ -38,15 +40,15 @@ const createOrFindGroup = (name, groups) => {
 };
 
 const sortByOrder = (a, b) => {
-  const diff = (a.context.frontmatter.order || 0) - (b.context.frontmatter.order || 0);
+  const diff = (a.frontmatter.order || 0) - (b.frontmatter.order || 0);
   return diff === 0 ? 0 : diff > 0 ? 1 : -1;
 };
 
 const pagesToNavGroups = (pages) => pages.reduce((groups, page) => {
-  if (!page.context.frontmatter.menu) {
+  if (!page.frontmatter.menu) {
     return groups;
   }
-  const group = createOrFindGroup(page.context.frontmatter.menu, groups);
+  const group = createOrFindGroup(page.frontmatter.menu, groups);
   group.pages.push(page);
   group.pages.sort(sortByOrder);
   return groups;
@@ -111,27 +113,32 @@ export function Sidebar() {
         const navGroups = pagesToNavGroups(
           data.allSitePage.edges
             .map((edge) => edge.node)
-            .filter((node) => node.context && node.context.frontmatter),
+            .filter((node) => node.frontmatter),
         );
 
         navGroups.sort(sortGroupsWithConfig(data.site.siteMetadata.menu));
 
         return (
           <Nav>
-            {navGroups.map((navGroup) => (
-              <NavGroup key={navGroup.name}>
-                <NavGroupTitle>{navGroup.name}</NavGroupTitle>
-                <NavGroupMenu>
-                  {navGroup.pages.map((page) => (
-                    <NavGroupMenuItem key={page.id}>
-                      <Link activeClassName="active" to={page.path}>
-                        {page.context.frontmatter.title}
-                      </Link>
-                    </NavGroupMenuItem>
-                  ))}
-                </NavGroupMenu>
-              </NavGroup>
-            ))}
+            {navGroups.map((navGroup) => {
+              return (
+                <NavGroup key={navGroup.name}>
+                  <NavGroupTitle>{navGroup.name}</NavGroupTitle>
+                  <NavGroupMenu>
+                    {navGroup.pages.map((page) => {
+                      const path = page.frontmatter.route || page.field.slug;
+                      return (
+                        <NavGroupMenuItem key={page.id}>
+                          <Link activeClassName="active" to={path}>
+                            {page.frontmatter.title}
+                          </Link>
+                        </NavGroupMenuItem>
+                      );
+                    })}
+                  </NavGroupMenu>
+                </NavGroup>
+              );
+            })}
           </Nav>
         );
       }}

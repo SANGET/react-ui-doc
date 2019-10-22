@@ -11,8 +11,8 @@ module.exports = {
         menu: ['Introduction', 'Guides', 'API'],
         nav: [{ title: 'Docs', url: '/docs/' }],
         basePath: ".",
-        docPath: `${__dirname}/src/pages/docs`,
-        pagePath: `${__dirname}/src/pages`,
+        docPath: `${__dirname}/website/pages/docs`,
+        pagePath: `${__dirname}/website/pages`,
         imagePath: `${__dirname}/images`,
         analytics: {
           trackingId: `UA-125030746-1`,
