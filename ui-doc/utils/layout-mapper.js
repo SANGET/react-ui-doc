@@ -1,7 +1,7 @@
 const path = require('path');
 
 const layoutMapper = {
-  doc: path.resolve(__dirname, `../src/components/DocLayout.tsx`),
+  doc: path.resolve(__dirname, `../src/layouts/docs.tsx`),
 };
 
 module.exports = layoutMapper;
