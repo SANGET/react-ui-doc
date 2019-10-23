@@ -1,8 +1,8 @@
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { ThemeProvider } from './ThemeProvider';
-import { GlobalStyle } from './GlobalStyle';
-import { Code } from './Code';
+import { ThemeProvider } from './theme-provider';
+import { GlobalStyle } from './global-style';
+import { Code } from './code';
 
 const components = {
   code: ({ children, className, ...props }) => {
@@ -18,8 +18,6 @@ const components = {
 export function RootWrapper({ children, theme }) {
   return (
     <ThemeProvider theme={theme}>
-      {/* <ColorModeProvider>
-      </ColorModeProvider> */}
       <MDXProvider components={components}>
         <>
           <GlobalStyle />

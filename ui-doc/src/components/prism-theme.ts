@@ -1,5 +1,3 @@
-// import { th } from '@xstyled/system';
-
 const light = {
   styles: [
     {
@@ -152,12 +150,7 @@ const dark = {
 const modeThemes = { light, dark };
 
 export default function getPrismTheme({ mode }) {
-  // const p = { theme };
   return {
-    // plain: {
-    //   color: th.color('editor-text')(p),
-    //   backgroundColor: th.color('editor-bg')(p),
-    // },
     ...modeThemes[mode],
   };
 }

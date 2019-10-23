@@ -47,7 +47,7 @@ exports.createPages = ({ graphql, actions }, options) => {
 
       createPage({
         path: _route,
-        component: require.resolve('./src/layouts/docs.tsx'),
+        component: layoutMapper.doc,
         context: {
           id: node.id,
           slug: _route,
