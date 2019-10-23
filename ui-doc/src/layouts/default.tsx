@@ -1,10 +1,13 @@
 import React from 'react';
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 export default class DefaultLayout extends React.Component {
   render() {
-    const { children } = this.props;
+    const { children, data = {} } = this.props;
     return (
-      <div>{children}</div>
+      <MDXRenderer>
+        {data.mdx.body}
+      </MDXRenderer>
     );
   }
 }
