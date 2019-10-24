@@ -4,7 +4,7 @@ module.exports = function config({
   description = '',
   siteUrl = '',
   author = '',
-  docPath = 'src/pages/docs',
+  docPath = 'src/docs',
   pagePath = 'src/pages',
   imagePath = 'images',
   menu = ['Usage'],
@@ -84,7 +84,7 @@ module.exports = function config({
         options: {
           defaultLayouts: {
             default: require.resolve('./src/layouts/default.tsx'),
-            // docs: require.resolve('./src/layouts/docs.tsx'),
+            docs: require.resolve('./src/layouts/docs.tsx'),
           },
           gatsbyRemarkPlugins: [
             {
