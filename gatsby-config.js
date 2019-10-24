@@ -13,7 +13,7 @@ module.exports = {
         basePath: ".",
         docPath: `${__dirname}/src/pages/docs`,
         pagePath: `${__dirname}/src/pages`,
-        imagePath: `${__dirname}/images`,
+        imagePath: `${__dirname}/src/images`,
         analytics: {
           trackingId: `UA-125030746-1`,
           head: false,
