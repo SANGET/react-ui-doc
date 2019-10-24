@@ -69,51 +69,14 @@ const Nav = styled.nav`
   height: 34;
   margin-left: 10;
   position: relative;
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    transparent
-  );
   overflow-x: auto;
 `;
 
 const NavList = styled.ul`
-  color: text;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  height: 34;
 `;
 
 const NavListItem = styled.li`
-  list-style-type: none;
-  flex: 1 1 auto;
-  margin: 0;
-  text-align: center;
-  white-space: nowrap;
-  font-size: 16;
-  line-height: 1.2;
-
-  a,
-  button {
-    appearance: none;
-    color: nav-link;
-    display: flex;
-    padding: 0 10;
-    background-color: transparent;
-    border: 0;
-    transition: base;
-    transition-property: color;
-    cursor: pointer;
-
-    &:hover,
-    &:focus {
-      outline: none;
-      color: nav-link-hover;
-    }
-  }
+  color: #000;
 `;
 
 const modeIcons = {
