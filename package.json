@@ -39,7 +39,7 @@
     "react-transition-group": "^4.0.1",
     "ts-jest": "^24.0.2",
     "typescript": "3.6.4",
-    "ukelli-ui": "^3.1.0-hotfix0",
+    "ukelli-ui": "^3.3.0-rc2",
     "unistore": "^3.1.0"
   }
 }

@@ -3,13 +3,13 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-import { Grid } from 'ukelli-ui';
+import {
+  Grid, Icon, Button, Label
+} from 'ukelli-ui';
 import { DocSearch } from './doc-search';
 import { useColorMode } from '../utils/use-theme';
 
 import GithubBrands from './icons/GithubBrands';
-import SunSolid from './icons/SunSolid';
-import MoonSolid from './icons/MoonSolid';
 import { MainContentWrapper } from './common-style';
 
 const QUERY = graphql`
@@ -42,7 +42,7 @@ const QUERY = graphql`
 
 const Container = styled.div`
   background-color: bg;
-  border: 1px solid #f7f7f7;
+  border-bottom: 1px solid #f7f7f7;
   padding: 16 0;
 `;
 
@@ -50,14 +50,17 @@ const Header = styled.div`
   display: flex;
   flex-flow: row nowrap;
   position: relative;
+  padding: 0 20px;
 `;
 
 const LogoText = styled.span`
   margin-left: 10px;
   color: #444;
+  font-size: 18px;
 `;
 
 const LogoLink = styled(Link)`
+  margin-right: 10px;
 `;
 
 const Box = styled.span`
@@ -68,22 +71,38 @@ const Nav = styled.nav`
   /* height: 34; */
   margin-left: 10;
   position: relative;
-  overflow-x: auto;
+  display: flex;
 `;
 
 const NavList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
+  align-self: flex-end;
+  display: flex;
+  overflow-x: auto;
+  list-style: none;
+  margin: 0rem;
+`;
+
+const SideHelpers = styled(NavList)`
+`;
+
+const HelperItem = styled.li`
+  font-size: 18px;
+  color: #666;
 `;
 
 const NavListItem = styled.li`
   color: #000;
+  display: inline-block;
+  line-height: 2.8rem;
+  color: #666;
 `;
 
 const modeIcons = {
-  light: MoonSolid,
-  dark: SunSolid,
+  light: 'moon',
+  dark: 'sun',
 };
 
 function getInverseMode(mode) {
@@ -92,11 +111,10 @@ function getInverseMode(mode) {
 
 function ColorModeSwitcher() {
   const [mode, setMode] = useColorMode();
-  const Icon = modeIcons[mode];
   return (
-    <button type="button" onClick={() => setMode(getInverseMode)}>
-      <Icon width="24" height="24" />
-    </button>
+    <Label onClick={() => setMode(getInverseMode)}>
+      <Icon n={modeIcons[mode]} />
+    </Label>
   );
 }
 
@@ -113,12 +131,6 @@ export function ProjectHeader() {
             />
             <LogoText>{data.site.siteMetadata.title}</LogoText>
           </LogoLink>
-          <span className="flex"></span>
-          <Box>
-            {data.site.siteMetadata.algoliaDocSearch.enabled && (
-              <DocSearch {...data.site.siteMetadata.algoliaDocSearch} />
-            )}
-          </Box>
           <Nav>
             <NavList className="layout a-i-c">
               {data.site.siteMetadata.nav.map(({ title, url }) => (
@@ -126,19 +138,31 @@ export function ProjectHeader() {
                   <Link to={url}>{title}</Link>
                 </NavListItem>
               ))}
-              <NavListItem>
-                <a
-                  href={data.site.siteMetadata.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <GithubBrands width="24" height="24" />
-                </a>
-              </NavListItem>
-              <NavListItem>
-                <ColorModeSwitcher />
-              </NavListItem>
             </NavList>
+          </Nav>
+          <span className="flex"></span>
+          <Box>
+            {data.site.siteMetadata.algoliaDocSearch.enabled && (
+              <DocSearch {...data.site.siteMetadata.algoliaDocSearch} />
+            )}
+          </Box>
+          <Nav>
+            <SideHelpers className="layout a-i-c">
+              <HelperItem>
+                <Label>
+                  <a
+                    href={data.site.siteMetadata.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon n="github" s="b" />
+                  </a>
+                </Label>
+              </HelperItem>
+              <HelperItem>
+                <ColorModeSwitcher />
+              </HelperItem>
+            </SideHelpers>
           </Nav>
         </Header>
       </MainContentWrapper>

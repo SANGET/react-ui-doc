@@ -4,23 +4,24 @@ import React from 'react';
 // import { Normalize } from '@smooth-ui/core-sc';
 
 import 'ukelli-ui/default.css';
+import { createGlobalStyle } from 'styled-components';
 
-// const LocalGlobalStyle = createGlobalStyle`
-//   html, body {
-//     margin: 0;
-//     // color: ${th.color('text')};
-//     line-height: 1.4;
-//   }
+const LocalGlobalStyle = createGlobalStyle`
+  a {
+    color: inherit;
+    text-decoration: none;
 
-//   a, a:hover {
-//     color: ${th.color('primary')};
-//     text-decoration: none;
-//   }
-// `;
+    :hover {
+      /* color: #CCC; */
+      text-decoration: none;
+    }
+  }
+`;
 
 export function GlobalStyle() {
   return (
     <>
+      <LocalGlobalStyle />
       {/* <Normalize />
       <LocalGlobalStyle /> */}
     </>

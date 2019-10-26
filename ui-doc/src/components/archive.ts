@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const Article = styled.article`
+
   > p {
     margin-top: 30;
     font-size: 17;

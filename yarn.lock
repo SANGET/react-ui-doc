@@ -15679,10 +15679,10 @@ uid-number@0.0.6:
   resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
   integrity sha1-DqEOgDXo61uOREnwbaHHMGY7qoE=
 
-ukelli-ui@^3.1.0-hotfix0:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/ukelli-ui/-/ukelli-ui-3.1.1.tgz#d7f2d9d07c96a6679e3135fee92aa640bcefbbbc"
-  integrity sha512-fdXrYhUvHba4vJ12t7IwnShZywfhAWIi5tqWlLdAT2Z6dpYRzl41lJthRvk+Nihv36E7HM7fg9WtbDH+/cR9QQ==
+ukelli-ui@^3.3.0-rc2:
+  version "3.3.0-rc2"
+  resolved "https://registry.yarnpkg.com/ukelli-ui/-/ukelli-ui-3.3.0-rc2.tgz#e8136204dfbd76ce8910d2986a3669baca688626"
+  integrity sha512-mhsr9xmFo5GI1YFEEaJAiPW+2HdSAFLa1YdcCxdaq+wi9KodcA6OgjvhYCAQRVxT+MwhzyTDA2mES6ponRQgYA==
   dependencies:
     classnames "^2.2.6"
     flatpickr "^4.6.3"
