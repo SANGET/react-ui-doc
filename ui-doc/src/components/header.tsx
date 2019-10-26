@@ -10,6 +10,7 @@ import { useColorMode } from '../utils/use-theme';
 import GithubBrands from './icons/GithubBrands';
 import SunSolid from './icons/SunSolid';
 import MoonSolid from './icons/MoonSolid';
+import { MainContentWrapper } from './common-style';
 
 const QUERY = graphql`
   query Header {
@@ -41,8 +42,7 @@ const QUERY = graphql`
 
 const Container = styled.div`
   background-color: bg;
-  border-bottom: 1;
-  border-color: border;
+  border: 1px solid #f7f7f7;
   padding: 16 0;
 `;
 
@@ -50,15 +50,14 @@ const Header = styled.div`
   display: flex;
   flex-flow: row nowrap;
   position: relative;
-  text-align: left;
 `;
 
 const LogoText = styled.span`
-  
+  margin-left: 10px;
+  color: #444;
 `;
 
 const LogoLink = styled(Link)`
-
 `;
 
 const Box = styled.span`
@@ -66,13 +65,16 @@ const Box = styled.span`
 `;
 
 const Nav = styled.nav`
-  height: 34;
+  /* height: 34; */
   margin-left: 10;
   position: relative;
   overflow-x: auto;
 `;
 
 const NavList = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
 `;
 
 const NavListItem = styled.li`
@@ -102,22 +104,23 @@ export function ProjectHeader() {
   const data = useStaticQuery(QUERY);
   return (
     <Container>
-      <Grid space={20}>
-        <Header>
-          <LogoLink to="/">
+      <MainContentWrapper>
+        <Header className="layout a-i-c flex">
+          <LogoLink to="/" className="layout a-i-c">
             <Img
               fixed={data.logo.childImageSharp.fixed}
               alt={data.site.siteMetadata.title}
             />
             <LogoText>{data.site.siteMetadata.title}</LogoText>
           </LogoLink>
+          <span className="flex"></span>
           <Box>
             {data.site.siteMetadata.algoliaDocSearch.enabled && (
               <DocSearch {...data.site.siteMetadata.algoliaDocSearch} />
             )}
           </Box>
           <Nav>
-            <NavList>
+            <NavList className="layout a-i-c">
               {data.site.siteMetadata.nav.map(({ title, url }) => (
                 <NavListItem key={title}>
                   <Link to={url}>{title}</Link>
@@ -138,7 +141,7 @@ export function ProjectHeader() {
             </NavList>
           </Nav>
         </Header>
-      </Grid>
+      </MainContentWrapper>
     </Container>
   );
 }
