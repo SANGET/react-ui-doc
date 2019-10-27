@@ -1,0 +1,30 @@
+---
+name: Alert
+# route: /Alert
+title: Alert
+menu: Components
+---
+
+import { Props } from '@ukelli-ui/doc/components'
+
+# Alert
+
+> 提示框，用于重要提示，或者用户手册等
+
+## Basic Usage
+
+```jsx live noInline
+import { Alert } from 'ukelli-ui/core'
+
+const MockData = '这大都会的黄昏很迷人，可我偶尔会有挥之不去的孤寂，每当看见那些囊中羞涩的年轻职员在商店橱窗前徜徉，挨到晚饭时间形影相吊地去餐厅填肚子，我知道他们也深有同感——我们这些薄暮中的年轻职员啊，正在虚度一生中最灿烂的年华，一夜中最美好的时辰。';
+
+
+function Example() {
+  return (
+    <Alert 
+      title="了不起的盖茨比"
+      text={MockData}/>
+  )
+}
+render(<Example />);
+```
