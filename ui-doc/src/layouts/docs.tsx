@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import DefaultLayout from './default';
 import { SideNav } from '../components/side-nav';
 import { Article } from '../components/archive';
-import { MainContentWrapper } from '../components/common-style';
+import { MainContentWrapper, device } from '../components/common-style';
 
 const MenuContext = React.createContext();
 
@@ -15,12 +15,27 @@ const MenuProvider = ({ children }) => {
   return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>;
 };
 
+const docMenuWidth = `200px`;
+
 const SideNavWrapper = styled.div`
-  flex-basis: 200px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: ${docMenuWidth};
   
-  ${c => c.opened && css`
+  ${(c) => c.opened && css`
     color: red;
   `}
+`;
+const ArticleContent = styled.div`
+  width: 70%;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  @media ${device.mobileM} {
+    width: 90%;
+  }
 `;
 
 export default class DocLayout extends React.Component {
@@ -41,7 +56,11 @@ export default class DocLayout extends React.Component {
                 }
               }
             </MenuContext.Consumer>
-            <Article>{children}</Article>
+            <Article>
+              <ArticleContent>
+                {children}
+              </ArticleContent>
+            </Article>
           </MainContentWrapper>
         </DefaultLayout>
       </MenuProvider>

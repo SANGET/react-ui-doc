@@ -86,6 +86,11 @@ module.exports = function config({
             default: require.resolve('./src/layouts/default.tsx'),
             docs: require.resolve('./src/layouts/docs.tsx'),
           },
+          // rehypePlugins: [
+          //   {
+          //     resolve: require.resolve('./src/plugins/mdx-transform/index.ts')
+          //   }
+          // ],
           gatsbyRemarkPlugins: [
             {
               resolve: require.resolve(

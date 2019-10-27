@@ -52,28 +52,38 @@ const pagesToNavGroups = (pages) => pages.reduce((groups, page) => {
   return groups;
 }, []);
 
+const ListGroup = styled.ul`
+  margin: 0;
+  padding: 0;
+
+  ul {
+    padding: 0 0 0 10px;
+  }
+`;
+
 const Nav = styled.nav`
   padding: 0 20;
 `;
 
-const NavGroup = styled.div`
+const NavGroup = styled(ListGroup)`
   margin-bottom: 20;
 `;
 
-const NavGroupTitle = styled.h3`
+const NavItemBasic = styled.div`
+  padding: 12px 20px;
+`;
+
+const NavGroupTitle = styled(NavItemBasic)`
   font-size: 17;
   font-weight: 500;
 `;
 
-const NavGroupMenu = styled.ul`
-  margin: 0;
-  padding: 0;
+const NavGroupMenu = styled(ListGroup)`
 `;
 
 const NavGroupMenuItem = styled.li`
+  padding: 8px 20px;
   list-style-type: none;
-  margin: 2 0;
-  padding: 0;
 
   a {
     color: nav-link;
@@ -96,11 +106,12 @@ const NavGroupMenuItem = styled.li`
   }
 `;
 
-const sortGroupsWithConfig = (menu) => (a, b) => {
-  const indexA = menu.indexOf(a.name);
-  const indexB = menu.indexOf(b.name);
+const sortGroupsWithConfig = (sideMenuFromConfig: string[]) => (a, b) => {
+  const indexA = sideMenuFromConfig.indexOf(a.name);
+  const indexB = sideMenuFromConfig.indexOf(b.name);
   const diff = indexA - indexB;
-  return diff === 0 ? 0 : diff < 0 ? -1 : 1;
+  // eslint-disable-next-line no-nested-ternary
+  return diff === 0 ? 0 : (diff < 0 ? -1 : 1);
 };
 
 export function SideNav() {
@@ -118,20 +129,24 @@ export function SideNav() {
 
         return (
           <Nav>
-            {navGroups.map((navGroup) => (
-              <NavGroup key={navGroup.name}>
-                <NavGroupTitle>{navGroup.name}</NavGroupTitle>
-                <NavGroupMenu>
-                  {navGroup.pages.map((page) => (
-                    <NavGroupMenuItem key={page.id}>
-                      <Link activeClassName="active" to={page.path}>
-                        {page.context.frontmatter.title}
-                      </Link>
-                    </NavGroupMenuItem>
-                  ))}
-                </NavGroupMenu>
-              </NavGroup>
-            ))}
+            {
+              navGroups.map((navGroup) => (
+                <NavGroup key={navGroup.name}>
+                  <NavGroupTitle>{navGroup.name}</NavGroupTitle>
+                  <NavGroupMenu>
+                    {
+                      navGroup.pages.map((page) => (
+                        <NavGroupMenuItem key={page.id}>
+                          <Link activeClassName="active" to={page.path}>
+                            {page.context.frontmatter.title}
+                          </Link>
+                        </NavGroupMenuItem>
+                      ))
+                    }
+                  </NavGroupMenu>
+                </NavGroup>
+              ))
+            }
           </Nav>
         );
       }}

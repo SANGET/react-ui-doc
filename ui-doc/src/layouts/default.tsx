@@ -5,9 +5,8 @@ import { Head } from '../components/head';
 import { ProjectHeader } from '../components/header';
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
+  position: relative;
 `;
 
 const Headers = styled.div`

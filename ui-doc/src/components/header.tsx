@@ -2,14 +2,12 @@ import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import { Icon } from 'ukelli-ui/core/icon';
+import { Label } from 'ukelli-ui/core/label';
 
-import {
-  Grid, Icon, Button, Label
-} from 'ukelli-ui';
 import { DocSearch } from './doc-search';
-import { useColorMode } from '../utils/use-theme';
+import { useColorMode } from './theme';
 
-import GithubBrands from './icons/GithubBrands';
 import { MainContentWrapper } from './common-style';
 
 const QUERY = graphql`
@@ -41,7 +39,10 @@ const QUERY = graphql`
 `;
 
 const Container = styled.div`
-  background-color: bg;
+  background-color: ${(props) => {
+    console.log(props);
+    return props.theme.colors.bg;
+  }};
   border-bottom: 1px solid #f7f7f7;
   padding: 16 0;
 `;
@@ -91,6 +92,10 @@ const SideHelpers = styled(NavList)`
 const HelperItem = styled.li`
   font-size: 18px;
   color: #666;
+
+  a {
+    color: inherit;
+  }
 `;
 
 const NavListItem = styled.li`
@@ -101,8 +106,8 @@ const NavListItem = styled.li`
 `;
 
 const modeIcons = {
-  light: 'moon',
-  dark: 'sun',
+  light: 'sun',
+  dark: 'moon',
 };
 
 function getInverseMode(mode) {
@@ -112,7 +117,7 @@ function getInverseMode(mode) {
 function ColorModeSwitcher() {
   const [mode, setMode] = useColorMode();
   return (
-    <Label onClick={() => setMode(getInverseMode)}>
+    <Label onClick={() => { setMode(getInverseMode); }}>
       <Icon n={modeIcons[mode]} />
     </Label>
   );

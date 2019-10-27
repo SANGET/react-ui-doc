@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 
+const docMenuWidth = `200px`;
+
 export const Article = styled.article`
+  padding-left: ${docMenuWidth};
 
   > p {
     margin-top: 30;

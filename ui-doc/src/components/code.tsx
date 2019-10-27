@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import styled, { ThemeContext } from 'styled-components';
+import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import {
   LiveProvider,
   LiveEditor,
@@ -9,17 +9,16 @@ import {
 } from 'react-live';
 import { mdx } from '@mdx-js/react';
 import getPrismTheme from './prism-theme';
-import { useColorMode } from '../utils/use-theme';
+import { useColorMode } from './theme';
 
 const Editor = styled.div`
-  background-color: editor-bg;
-  color: editor-text;
-  padding: 15 20;
-  margin: 25 -20;
+  padding: 15px 20px;
+  margin-bottom: 25px;
   overflow: auto;
   font-size: 14;
   line-height: 1.45;
   overflow-y: auto;
+  margin-top: 0;
 
   > textarea:focus {
     outline: none;
@@ -27,15 +26,14 @@ const Editor = styled.div`
 `;
 
 const LivePreview = styled(BaseLivePreview)`
-  padding: 15 20;
-  margin: 25 -20 10;
-  border: 1;
-  border-color: border;
+  padding: 15px 20px;
+  margin: 25px 0 0;
+  border: 1px rgba(0,0,0, 0.1) solid;
   border-image: initial;
-  border-radius: 3;
+  border-radius: 3px;
 
   & + ${Editor} {
-    margin-top: 10;
+    margin-top: 10px;
   }
 `;
 
@@ -58,53 +56,61 @@ function req(path) {
 }
 
 function importToRequire(code) {
-  return (
-    code
-      // { a as b } => { a: b }
-      .replace(/([0-9a-z_$]+) as ([0-9a-z_$]+)/gi, '$1: $2')
-      // import { a } from "a" => const { a } = require("b")
-      .replace(
-        /import {([^}]+)} from ([^\s;]+);?/g,
-        'const {$1} = require($2);',
-      )
-      // import a from "a" => const a = require("a").default || require("a")
-      .replace(
-        /import ([\S]+) from ([^\s;]+);?/g,
-        'const $1 = require($2).default || require($2);',
-      )
-      // import * as a from "a"
-      .replace(
-        /import \* as ([\S]+) from ([^\s;]+);?/g,
-        'const $1 = require($2);',
-      )
-      // import a from "a" => const a = require("a").default || require("a")
-      .replace(
-        /import (.+),\s?{([^}]+)} from ([^\s;]+);?/g,
-        [
-          'const $1 = require($3).default || require($3);',
-          'const {$2} = require($3);',
-        ].join('\n'),
-      )
-  );
+  let _code = `/** @jsx mdx */\n${code}`;
+  _code = _code
+    // { a as b } => { a: b }
+    .replace(/([0-9a-z_$]+) as ([0-9a-z_$]+)/gi, '$1: $2')
+    // import { a } from "a" => const { a } = require("b")
+    .replace(
+      /import {([^}]+)} from ([^\s;]+);?/g,
+      'const {$1} = require($2);',
+    )
+    // import a from "a" => const a = require("a").default || require("a")
+    .replace(
+      /import ([\S]+) from ([^\s;]+);?/g,
+      'const $1 = require($2).default || require($2);',
+    )
+    // import * as a from "a"
+    .replace(
+      /import \* as ([\S]+) from ([^\s;]+);?/g,
+      'const $1 = require($2);',
+    )
+    // import a from "a" => const a = require("a").default || require("a")
+    .replace(
+      /import (.+),\s?{([^}]+)} from ([^\s;]+);?/g,
+      [
+        'const $1 = require($3).default || require($3);',
+        'const {$2} = require($3);',
+      ].join('\n'),
+    );
+  return _code;
 }
 
 export function usePrismTheme() {
-  // const theme = React.useContext(ThemeContext);
   const [mode] = useColorMode();
   return getPrismTheme({ mode });
 }
 
-export function Code({
-  children, lang = 'markup', live, noInline
-}) {
+export interface CodeProps {
+  language: Language;
+  live?: boolean;
+  render?: boolean;
+  noInline?: boolean;
+  children: string;
+}
+
+export const Code: React.SFC<CodeProps> = ({
+  children, language = 'jsx', live, noInline, render
+}) => {
+  const code = children.trim();
   const prismTheme = usePrismTheme();
   if (live) {
     return (
       <LiveProvider
-        code={children.trim()}
-        transformCode={(code) => `/* @jsx mdx */ ${importToRequire(code)}`}
+        code={code}
+        transformCode={importToRequire}
         scope={{ mdx, require: req }}
-        language={lang}
+        language={language}
         theme={prismTheme}
         noInline={noInline}
       >
@@ -114,28 +120,41 @@ export function Code({
       </LiveProvider>
     );
   }
+
+  if (render) {
+    return (
+      <div style={{ marginTop: '40px' }}>
+        <LiveProvider code={code}>
+          <LivePreview />
+        </LiveProvider>
+      </div>
+    );
+  }
+
   return (
     <Editor>
       <Highlight
         {...defaultProps}
-        code={children.trim()}
-        language={lang}
+        code={code}
+        language={language}
         theme={prismTheme}
       >
         {({
           className, style, tokens, getLineProps, getTokenProps
         }) => (
           <pre className={className} style={style}>
-            {tokens.map((line, i) => (
-              <div {...getLineProps({ line, key: i })}>
-                {line.map((token, key) => (
-                  <span {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            ))}
+            {
+              tokens.map((line, i) => (
+                <div {...getLineProps({ line, key: i })}>
+                  {line.map((token, key) => (
+                    <span {...getTokenProps({ token, key })} />
+                  ))}
+                </div>
+              ))
+            }
           </pre>
         )}
       </Highlight>
     </Editor>
   );
-}
+};
