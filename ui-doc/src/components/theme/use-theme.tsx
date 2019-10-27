@@ -7,7 +7,6 @@ export const ColorModeContext = React.createContext();
 // TODO: Use localstorage to storage mode
 export const useColorMode = () => {
   const colorModeState = React.useContext(ColorModeContext);
-  console.log(colorModeState);
 
   if (!colorModeState) {
     throw new Error(`[useColorMode] requires the ColorModeProvider component`);
@@ -33,6 +32,8 @@ export const ColorThemeProvider = ({ children }) => {
     <ColorModeContext.Provider value={[
       mode,
       setMode
-    ]}>{children}</ColorModeContext.Provider>
+    ]}>
+      {children}
+    </ColorModeContext.Provider>
   );
 };
