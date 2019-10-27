@@ -17,8 +17,25 @@ module.exports = {
         analytics: {
           trackingId: `UA-125030746-1`,
           head: false,
+        },
+        theme: {
+          defaultMode: 'light',
+          colors: {
+            light: {
+              body: '#FFF'
+            },
+            dark: {
+              body: '#000'
+            }
+          }
         }
       },
     },
+    {
+      resolve: 'gatsby-plugin-layout',
+      options: {
+        component: require.resolve(`./src/components/layout`),
+      }
+    }
   ],
 };

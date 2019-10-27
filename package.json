@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "workspaces": [
-    "ui-doc"
+    "packages/ui-doc",
+    "packages/*"
   ],
   "scripts": {
     "start": "gatsby develop",
@@ -31,6 +32,7 @@
     "eslint-plugin-react-hooks": "^2.1.2",
     "fs-extra": "^8.1.0",
     "gatsby": "^2.16.5",
+    "gatsby-plugin-layout": "^1.1.13",
     "jest": "^24.5.0",
     "lerna": "^3.18.1",
     "react": "^16.10.1",
@@ -39,7 +41,6 @@
     "react-transition-group": "^4.0.1",
     "ts-jest": "^24.0.2",
     "typescript": "3.6.4",
-    "ukelli-ui": "^3.3.0-rc2",
     "unistore": "^3.1.0"
   }
 }
