@@ -10,7 +10,7 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "serve": "gatsby serve",
-    "release": "yarn workspace @fox-tech/doc release"
+    "release": "cd ui-doc; npm run release"
   },
   "author": "Alex",
   "license": "MIT",
