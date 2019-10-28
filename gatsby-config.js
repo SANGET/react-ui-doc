@@ -1,7 +1,7 @@
 module.exports = {
   plugins: [
     {
-      resolve: "@fox-ui/doc",
+      resolve: "@fox-tech/doc",
       options: {
         name: 'Ukelli-UI Doc',
         slug: 'ukelli-ui-doc',

@@ -1,6 +1,6 @@
 {
-  "name": "@fox-ui/doc",
-  "version": "0.1.0",
+  "name": "@fox-tech/doc",
+  "version": "0.1.1",
   "main": "index.js",
   "repository": "",
   "author": "Sanget",
@@ -11,8 +11,11 @@
   "scripts": {
     "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,md,mdx}\"",
-    "build": "tsc",
-    "release": ""
+    "build": "npm run clean:build; tsc; npm run cp:files",
+    "cp:files": "sh ./scripts/copy-files.sh",
+    "clean:build": "rm -rf ./dist",
+    "release": "npm run build; npm run publish:dist",
+    "publish:dist": "npm publish ./dist --access public"
   },
   "peerDependencies": {
     "gatsby": "^2.17.0",
@@ -23,7 +26,7 @@
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
     "@types/styled-components": "^4.1.19",
-    "@fox-ui/doc": "*",
+    "@fox-tech/doc": "*",
     "babel-plugin-styled-components": "^1.10.0",
     "deepmerge": "^4.2.1",
     "fs-extra": "^8.1.0",

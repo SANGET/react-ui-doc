@@ -1,5 +1,5 @@
 import React from 'react';
-import { LiveConfig } from '@fox-ui/doc/components';
+import { LiveConfig } from '@fox-tech/doc/components';
 import styled, * as sc from 'styled-components';
 import * as ukelliCore from 'ukelli-ui/core';
 
