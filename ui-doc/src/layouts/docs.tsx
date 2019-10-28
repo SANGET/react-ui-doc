@@ -5,6 +5,7 @@ import DefaultLayout from './default';
 import { SideNav } from '../components/side-nav';
 import { Article } from '../components/archive';
 import { MainContentWrapper, device } from '../components/common-style';
+import { useColorMode } from '../components/theme';
 
 const MenuContext = React.createContext();
 
