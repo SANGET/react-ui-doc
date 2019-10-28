@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { ThemeProvider, ColorThemeProvider } from './theme';
+import { ColorThemeProvider } from './theme';
 import { GlobalStyle } from './global-style';
 import { Code } from './code';
 
@@ -17,15 +17,13 @@ const components = {
 
 export function RootWrapper({ children, theme }) {
   return (
-    <ThemeProvider theme={theme}>
-      <ColorThemeProvider>
-        <MDXProvider components={components}>
-          <>
-            <GlobalStyle />
-            {children}
-          </>
-        </MDXProvider>
-      </ColorThemeProvider>
-    </ThemeProvider>
+    <ColorThemeProvider theme={theme}>
+      <MDXProvider components={components}>
+        <>
+          <GlobalStyle />
+          {children}
+        </>
+      </MDXProvider>
+    </ColorThemeProvider>
   );
 }

@@ -7,6 +7,12 @@ import 'ukelli-ui/default.css';
 import { createGlobalStyle } from 'styled-components';
 
 const LocalGlobalStyle = createGlobalStyle`
+  body {
+    ${(p) => {
+    console.log(p);
+    return p.theme.color.body;
+  }}
+  }
   a {
     color: inherit;
     text-decoration: none;

@@ -8,6 +8,8 @@ const defaultThemeConfig = {
   transitions: {
     base: '300ms ease',
   },
+  // 用于实际情况的 color
+  color: {},
   colors: {
     light: {
       body: '#FFF',

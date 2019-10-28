@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { ThemeConsumer, ThemeContext } from 'styled-components';
+import deepmerge from 'deepmerge';
+import { ThemeProvider } from './theme-provider';
+// import { ThemeProvider } from 'styled-components';
+import { defaultThemeConfig } from '.';
 
 const getIsDarkMode = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
 
@@ -24,16 +27,33 @@ export const useColorModeState = (defaultMode: string): [string, () => void] => 
   return [mode, toggleMode];
 };
 
-export const ColorThemeProvider = ({ children }) => {
-  const theme = React.useContext(ThemeContext);
+export const ColorThemeProvider = ({ children, theme }) => {
   const [mode, setMode] = useColorModeState(theme.defaultMode);
-  const currTheme = theme.colors[mode];
+  const computedTheme = React.useMemo(() => deepmerge(defaultThemeConfig, theme || {}), [
+    theme,
+  ]);
+  const currThemeColors = computedTheme.colors[mode];
+  computedTheme.color = currThemeColors;
   return (
     <ColorModeContext.Provider value={[
       mode,
       setMode
     ]}>
-      {children}
+      <ThemeProvider theme={computedTheme}>
+        {children}
+      </ThemeProvider>
+      {/* <ColorModeContext.Consumer>
+        {
+          (nextTheme) => {
+            console.log(nextTheme);
+            return (
+              <ThemeProvider theme={computedTheme}>
+                {children}
+              </ThemeProvider>
+            );
+          }
+        }
+      </ColorModeContext.Consumer> */}
     </ColorModeContext.Provider>
   );
 };
