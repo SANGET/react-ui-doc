@@ -1,5 +1,5 @@
-import dark from './prism/dracula';
-import light from './prism/shadesOfPurple';
+import dark from './dracula';
+import light from './githubLight';
 
 const modeThemes = { light, dark };
 

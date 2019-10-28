@@ -8,7 +8,7 @@ import {
   LivePreview as BaseLivePreview,
 } from 'react-live';
 import { mdx } from '@mdx-js/react';
-import getPrismTheme from './prism-theme';
+import getPrismTheme from './prism/prism-theme';
 import { useColorMode } from './theme';
 
 const Editor = styled.div`

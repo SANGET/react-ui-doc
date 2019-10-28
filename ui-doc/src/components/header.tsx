@@ -39,10 +39,7 @@ const QUERY = graphql`
 `;
 
 const Container = styled.div`
-  background-color: ${(props) => {
-    console.log(props);
-    return props.theme.color.body;
-  }};
+  background-color: ${({ theme }) => theme.color.body};
   border-bottom: 1px solid #f7f7f7;
   padding: 16 0;
 `;

@@ -10,6 +10,7 @@ const defaultThemeConfig = {
   },
   // 用于实际情况的 color
   color: {},
+  activeColorMode: '',
   colors: {
     light: {
       body: '#FFF',

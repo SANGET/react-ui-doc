@@ -6,7 +6,7 @@
     "ui-doc"
   ],
   "scripts": {
-    "start": "gatsby develop",
+    "start": "gatsby develop --host 0.0.0.0 --port 5555",
     "build": "gatsby build",
     "clean": "gatsby clean",
     "serve": "gatsby serve"
@@ -30,7 +30,7 @@
     "eslint-plugin-react": "7.16.0",
     "eslint-plugin-react-hooks": "^2.1.2",
     "fs-extra": "^8.1.0",
-    "gatsby": "^2.16.5",
+    "gatsby": "^2.17.4",
     "gatsby-plugin-layout": "^1.1.13",
     "jest": "^24.5.0",
     "lerna": "^3.18.1",

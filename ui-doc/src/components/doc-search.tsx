@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import SearchSolid from './icons/SearchSolid';
+import Icon from 'ukelli-ui/core/icon/icon';
 import { AlgoliaStyle } from './algolia-style';
 
 const Container = styled.div`
@@ -35,15 +35,6 @@ const Input = styled.input`
   }
 `;
 
-const SearchIcon = styled(SearchSolid)`
-  position: absolute;
-  left: 8px;
-  top: 8px;
-  z-index: 1;
-  user-select: none;
-  pointer-events: none;
-`;
-
 export function DocSearch({ apiKey, indexName }) {
   const ref = React.useRef();
   const [width, setWidth] = React.useState();
@@ -63,7 +54,7 @@ export function DocSearch({ apiKey, indexName }) {
   return (
     <Container ref={ref}>
       <AlgoliaStyle />
-      <SearchIcon />
+      <Icon n="searchengin" />
       <Input
         type="search"
         id="algolia-docsearch-input"

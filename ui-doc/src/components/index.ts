@@ -9,7 +9,7 @@ export * from './header';
 export * from './nav-bar';
 export * from './theme';
 export * from './playground';
-export * from './prism-theme';
+export * from './prism';
 export * from './root-wrapper';
 export * from './seo';
 export * from './side-nav';
