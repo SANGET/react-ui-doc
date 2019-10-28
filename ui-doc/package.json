@@ -1,5 +1,5 @@
 {
-  "name": "@ukelli-ui/doc",
+  "name": "@fox-ui/doc",
   "version": "0.1.0",
   "main": "index.js",
   "repository": "",
@@ -23,7 +23,7 @@
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
     "@types/styled-components": "^4.1.19",
-    "@ukelli-ui/doc": "*",
+    "@fox-ui/doc": "*",
     "babel-plugin-styled-components": "^1.10.0",
     "deepmerge": "^4.2.1",
     "fs-extra": "^8.1.0",
