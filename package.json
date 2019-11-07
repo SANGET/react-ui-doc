@@ -1,5 +1,5 @@
 {
-  "name": "@fox-tech/website",
+  "name": "@deer-ui/website",
   "version": "0.1.0",
   "private": true,
   "workspaces": [
@@ -19,7 +19,6 @@
     "@types/react-dom": "^16.8.4",
     "@typescript-eslint/eslint-plugin": "^2.3.3",
     "@typescript-eslint/parser": "^2.3.3",
-    "basic-helper": "^3.0.6",
     "codemirror": "^5.42.2",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",

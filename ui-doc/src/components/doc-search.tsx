@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import Icon from 'ukelli-ui/core/icon/icon';
+import { Icon } from '@deer-ui/core/icon';
 import { AlgoliaStyle } from './algolia-style';
 
 const Container = styled.div`

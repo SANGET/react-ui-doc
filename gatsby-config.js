@@ -1,11 +1,11 @@
 module.exports = {
   plugins: [
     {
-      resolve: "@fox-tech/doc",
+      resolve: "@deer-ui/doc-generator",
       options: {
-        name: 'Ukelli-UI Doc',
-        slug: 'ukelli-ui-doc',
-        github: 'https://github.com/ukelli/ukelli-ui',
+        name: '@deer-ui docs',
+        slug: '@deer-ui',
+        github: 'https://github.com/minimal-studio/deer-ui',
         siteUrl: 'https://ui.thinkmore.xyz',
         author: 'Alex',
         menu: ['Introduction', 'Guides', 'API'],

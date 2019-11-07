@@ -2,8 +2,8 @@ import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
-import { Icon } from 'ukelli-ui/core/icon';
-import { Label } from 'ukelli-ui/core/label';
+import { Icon } from '@deer-ui/core/icon';
+import { Label } from '@deer-ui/core/label';
 
 import { DocSearch } from './doc-search';
 import { useColorMode } from './theme';

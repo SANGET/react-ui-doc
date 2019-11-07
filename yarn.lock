@@ -814,6 +814,13 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@deer-ui/core@^4.0.0-alpha4.1":
+  version "4.0.0-alpha4.1"
+  resolved "https://registry.yarnpkg.com/@deer-ui/core/-/core-4.0.0-alpha4.1.tgz#71108e08b83f619ed3560f851e7a31890e3c6a99"
+  integrity sha512-qvHPaALCxiMriHrt7EO36BJBQCU11lEwMTNpMNuj0A0MCqZhy563nqL0S8CAUcr1UTXLex4oK6UZFfh56cujzw==
+  dependencies:
+    classnames "^2.2.6"
+
 "@emotion/is-prop-valid@^0.8.1":
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.3.tgz#cbe62ddbea08aa022cdf72da3971570a33190d29"
@@ -2062,6 +2069,11 @@
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@mikaelkristiansson/domready/-/domready-1.0.9.tgz#b2b85d8ac7bb2797e577050b61aeaf1b26fbd906"
   integrity sha512-FOAjeRHULSWXd6JMuCDwf3zPbe11kP971+Bufrj9M8rQ33ZMtThgKd6IJgzj6tr/+1Rq3czzLI1LAa9x0IC92w==
+
+"@mini-code/base-func@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@mini-code/base-func/-/base-func-1.0.2.tgz#55e94ee0207d1a893c3460bf9d1b08d925df2b8b"
+  integrity sha512-KKxEUXksbPDePZmT0jjgIsDXDWyswO8+Xdfrs9yy9j9dFM+DHkcaBM9RZAdpEW9xgT9OoBJn/NvxrQGonMJ81w==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -3480,11 +3492,6 @@ base@^0.11.1:
     isobject "^3.0.1"
     mixin-deep "^1.2.0"
     pascalcase "^0.1.1"
-
-basic-helper@^3.0.6:
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/basic-helper/-/basic-helper-3.0.8.tgz#aabfd8892dc166b7c3972298ba5e4e293398f1c8"
-  integrity sha512-KxBoEK3PAdNMsekEmVFfmK+FHezhavNDmkzZbKQ57+p0SBtqZBNFbiwAr5Psy5O745u8ddMMoBDLYQw6HTEypw==
 
 batch@0.6.1:
   version "0.6.1"
@@ -15689,13 +15696,6 @@ uid-number@0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
   integrity sha1-DqEOgDXo61uOREnwbaHHMGY7qoE=
-
-ukelli-ui@^3.3.0-rc4:
-  version "3.3.0-rc4"
-  resolved "https://registry.yarnpkg.com/ukelli-ui/-/ukelli-ui-3.3.0-rc4.tgz#ab6819d4d7b0d7ec8bb27555d46941a2367e4fd5"
-  integrity sha512-1MNy5Q0ndG8Osv2UNpkcN/8Mjr84rbERJkax2l/qIxMzX9HN/NsMyPXTsDicVaPaOG0QuBCRnDKUiAf35uboQA==
-  dependencies:
-    classnames "^2.2.6"
 
 umask@^1.1.0:
   version "1.1.0"

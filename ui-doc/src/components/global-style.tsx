@@ -1,6 +1,6 @@
 import React from 'react';
 
-import 'ukelli-ui/default.css';
+import '@deer-ui/core/default.css';
 import { createGlobalStyle, ThemeContext } from 'styled-components';
 
 const LocalGlobalStyle = createGlobalStyle`
