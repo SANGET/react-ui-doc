@@ -19,11 +19,12 @@ const MenuProvider = ({ children }) => {
 const docMenuWidth = `200px`;
 
 const SideNavWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   left: 0;
-  top: 0;
+  top: 50px;
   bottom: 0;
   width: ${docMenuWidth};
+  overflow-y: auto;
   
   ${(c) => c.opened && css`
     color: red;

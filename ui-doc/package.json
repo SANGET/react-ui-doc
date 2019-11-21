@@ -23,7 +23,7 @@
     "react-dom": "^16.9.0"
   },
   "dependencies": {
-    "@deer-ui/core": "^4.0.0-alpha4.1",
+    "@deer-ui/core": "^4.0.0-beta1.1",
     "@mini-code/base-func": "^1.0.2",
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",

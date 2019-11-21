@@ -14,3 +14,4 @@ export * from './root-wrapper';
 export * from './seo';
 export * from './side-nav';
 export * from './wrapper';
+export * from './props';
