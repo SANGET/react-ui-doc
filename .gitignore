@@ -54,8 +54,6 @@ package-lock.json
 # yarn.lock
 
 dist
-.docz
-docz-dist
 for-testing
 .cache
 public
