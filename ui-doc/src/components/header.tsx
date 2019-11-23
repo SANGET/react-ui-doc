@@ -161,9 +161,9 @@ export function ProjectHeader() {
                   </a>
                 </Label>
               </HelperItem>
-              <HelperItem>
+              {/* <HelperItem>
                 <ColorModeSwitcher />
-              </HelperItem>
+              </HelperItem> */}
             </SideHelpers>
           </Nav>
         </Header>

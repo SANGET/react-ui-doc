@@ -11,6 +11,7 @@ module.exports = function config({
   nav = [{ title: 'Usage', url: '/docs/getting-started/' }],
   codeFundProperty = 268,
   standalone = false,
+  defaultShowAllMenu = false,
   algoliaDocSearch = { apiKey: '', indexName: '' },
   analytics = {}
 } = {}) {
@@ -25,6 +26,7 @@ module.exports = function config({
       siteUrl,
       author,
       standalone,
+      defaultShowAllMenu,
       algoliaDocSearch: {
         enabled: Boolean(algoliaDocSearch.apiKey),
         ...algoliaDocSearch,

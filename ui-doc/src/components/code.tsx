@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import {
@@ -8,6 +8,7 @@ import {
   LivePreview as BaseLivePreview,
 } from 'react-live';
 import { mdx } from '@mdx-js/react';
+import { Icon, ToolTip } from '@deer-ui/core';
 import getPrismTheme from './prism/prism-theme';
 import { useColorMode } from './theme';
 
@@ -15,10 +16,11 @@ const Editor = styled.div`
   padding: 15px 20px;
   margin-bottom: 25px;
   overflow: auto;
-  font-size: 14;
-  line-height: 1.45;
+  font-size: 14px;
+  line-height: 1.45rem;
   overflow-y: auto;
   margin-top: 0;
+  white-space: normal;
 
   > textarea:focus {
     outline: none;
@@ -35,6 +37,14 @@ const LivePreview = styled(BaseLivePreview)`
   & + ${Editor} {
     margin-top: 10px;
   }
+`;
+
+const PreviewHelper = styled.div`
+  padding: 10px 20px;
+  border: 1px solid #EEE;
+  border-top: none;
+  border-radius: 3px;
+  /* text-align: right; */
 `;
 
 const globalModules = {
@@ -91,6 +101,27 @@ export function usePrismTheme() {
   return getPrismTheme({ mode });
 }
 
+const PreviewHelperWrapper = (props) => {
+  const [isShow, setIsShow] = useState(false);
+  return (
+    <div>
+      <PreviewHelper>
+        <ToolTip n="code"
+          title={`${isShow ? "Hide" : "Show"} code`}
+          position="right"
+          onClick={(e) => {
+            setIsShow(!isShow);
+          }} />
+      </PreviewHelper>
+      {
+        isShow && (
+          <Editor as={LiveEditor} {...props} />
+        )
+      }
+    </div>
+  );
+};
+
 export interface CodeProps {
   language: Language;
   live?: boolean;
@@ -115,8 +146,12 @@ export const Code: React.SFC<CodeProps> = ({
         noInline={noInline}
       >
         <LivePreview />
-        <Editor as={LiveEditor} />
         <LiveError />
+        <PreviewHelperWrapper />
+        {/* <PreviewHelper>
+          <Icon n="code" />
+        </PreviewHelper>
+        <Editor as={LiveEditor} /> */}
       </LiveProvider>
     );
   }
@@ -132,17 +167,17 @@ export const Code: React.SFC<CodeProps> = ({
   }
 
   return (
-    <Editor>
-      <Highlight
-        {...defaultProps}
-        code={code}
-        language={language}
-        theme={prismTheme}
-      >
-        {({
-          className, style, tokens, getLineProps, getTokenProps
-        }) => (
-          <pre className={className} style={style}>
+    <Highlight
+      {...defaultProps}
+      code={code}
+      language={language}
+      theme={prismTheme}
+    >
+      {({
+        className, style, tokens, getLineProps, getTokenProps
+      }) => (
+        <pre className={className} style={style}>
+          <Editor>
             {
               tokens.map((line, i) => (
                 <div {...getLineProps({ line, key: i })}>
@@ -152,9 +187,9 @@ export const Code: React.SFC<CodeProps> = ({
                 </div>
               ))
             }
-          </pre>
-        )}
-      </Highlight>
-    </Editor>
+          </Editor>
+        </pre>
+      )}
+    </Highlight>
   );
 };

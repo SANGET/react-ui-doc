@@ -5,7 +5,10 @@ import { createGlobalStyle, ThemeContext } from 'styled-components';
 
 const LocalGlobalStyle = createGlobalStyle`
   body {
-    background-color: ${({ theme }) => theme.color.body}
+    background-color: ${({ theme }) => theme.color.body};
+  }
+  pre {
+    white-space: normal;
   }
   a {
     color: inherit;

@@ -6,21 +6,21 @@ export const Article = styled.article`
   padding-left: ${docMenuWidth};
 
   > p {
-    margin-top: 30;
-    font-size: 17;
-    line-height: 1.7;
+    margin-top: 30px;
+    font-size: 17px;
+    line-height: 1.7rem;
     max-width: 42em;
 
     &:first-of-type {
-      margin-top: 15;
+      margin-top: 15px;
     }
   }
 
   /* Intro */
   > h1 + p {
-    font-size: 18;
+    font-size: 18px;
     font-weight: 300;
-    color: subtitle;
+    color: ${({ theme }) => theme.color.subtitle};
 
     a,
     strong {
@@ -29,12 +29,12 @@ export const Article = styled.article`
   }
 
   > hr {
-    height: 1;
-    margin-bottom: -1;
+    height: 1px;
+    margin-bottom: -1px;
     border: 0;
-    border-bottom: 1;
-    border-color: subtitle;
-    margin-top: 40;
+    border-bottom: 1px;
+    border-color: ${({ theme }) => theme.color.subtitle};
+    margin-top: 40px;
 
     &:first-child {
       margin-top: 0;
@@ -42,20 +42,20 @@ export const Article = styled.article`
   }
 
   > h1 {
-    font-size: 40;
-    line-height: 1.1;
+    font-size: 40px;
+    line-height: 1.1rem;
     font-weight: 600;
-    margin-top: 40;
-    margin-bottom: 30;
+    margin-top: 40px;
+    margin-bottom: 30px;
   }
 
   > h2 {
-    border-top: 1;
+    border-top: 1px;
     border-color: border;
-    margin-top: 44;
-    padding-top: 40;
-    line-height: 1.2;
-    font-size: 20;
+    margin-top: 44px;
+    padding-top: 40px;
+    line-height: 1.2rem;
+    font-size: 20px;
   }
 
   > h1 + h2 {
@@ -65,49 +65,49 @@ export const Article = styled.article`
   }
 
   > h3 {
-    padding-top: 45;
+    padding-top: 45px;
   }
 
   > h3 {
-    padding-top: 45;
+    padding-top: 45px;
   }
 
   > h4 {
-    margin-top: 50;
+    margin-top: 50px;
     font-weight: 400;
-    font-size: 20;
-    line-height: 1.3;
-    color: subtitle;
+    font-size: 20px;
+    line-height: 1.3rem;
+    color: ${({ theme }) => theme.color.subtitle};
   }
 
   > h2 + h3,
   > h2 + h3:first-of-type {
-    padding-top: 30;
+    padding-top: 30px;
   }
 
   > h4 + p {
-    margin-top: 20;
+    margin-top: 20px;
   }
 
   .editor {
-    background-color: secondary-bg;
-    color: editor-text;
-    padding: 15 20;
-    margin: 25 -20;
+    background-color: ${({ theme }) => theme.color['secondary-bg']};
+    color: ${({ theme }) => theme.color['editor-text']};
+    padding: 15px 20px;
+    margin: 25px -20px;
     overflow: auto;
-    font-size: 14;
-    line-height: 1.45;
-    border-radius: 3;
+    font-size: 14px;
+    line-height: 1.45rem;
+    border-radius: 3px;
   }
 
   > code {
-    background-color: editor-bg;
-    border-radius: 3;
+    background-color: ${({ theme }) => theme.color['editor-bg']};
+    border-radius: 3px;
     color: inherit;
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono,
       Courier New, monospace;
     font-size: 85%;
-    padding: 3 6;
+    padding: 3px 6px;
   }
 
   > table {
@@ -130,7 +130,7 @@ export const Article = styled.article`
 
     tr {
       background-color: transparent;
-      border-top: 1;
+      border-top: 1px;
       border-color: border;
     }
 
@@ -141,9 +141,9 @@ export const Article = styled.article`
 
     td,
     th {
-      border: 1;
+      border: 1px;
       border-color: border;
-      padding: 6 13;
+      padding: 6px 13px;
     }
   }
 
@@ -153,25 +153,25 @@ export const Article = styled.article`
 
   ol,
   ul {
-    margin-top: 20;
-    font-size: 16;
-    padding-left: 20;
+    margin-top: 20px;
+    font-size: 16px;
+    padding-left: 20px;
 
     p,
     p:first-of-type {
-      font-size: 16;
+      font-size: 16px;
       margin-top: 0;
-      line-height: 1.2;
+      line-height: 1.2rem;
     }
 
     li {
-      margin-top: 10;
+      margin-top: 10px;
     }
 
     ol,
     ul {
-      margin-left: 20;
-      margin-top: 10;
+      margin-left: 20px;
+      margin-top: 10px;
     }
   }
 
@@ -183,20 +183,20 @@ export const Article = styled.article`
     list-style: disc;
   }
 
-  > blockquote {
-    font-size: 16;
-    background-color: blockquote-bg;
-    border-left: 8;
-    border-color: blockquote;
-    padding: 20 45 20 26;
-    margin: 20 -20 30;
+  blockquote {
+    font-size: 16px;
+    background-color: ${({ theme }) => theme.color['blockquote-bg']};
+    border-left: 8px solid;
+    border-color: ${({ theme }) => theme.color.blockquote};
+    padding: 10px 45px 10px 26px;
+    margin: 20px -20px 30px;
 
     p {
-      margin-top: 15;
+      margin-top: 15px;
 
-      &:first-of-type {
+      /* &:first-of-type {
         margin-top: 0;
-      }
+      } */
     }
   }
 `;

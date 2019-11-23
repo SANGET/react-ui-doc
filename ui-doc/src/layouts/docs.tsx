@@ -16,15 +16,7 @@ const MenuProvider = ({ children }) => {
   return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>;
 };
 
-const docMenuWidth = `200px`;
-
 const SideNavWrapper = styled.div`
-  position: fixed;
-  left: 0;
-  top: 50px;
-  bottom: 0;
-  width: ${docMenuWidth};
-  overflow-y: auto;
   
   ${(c) => c.opened && css`
     color: red;

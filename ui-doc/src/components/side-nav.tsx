@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import styled, { css } from 'styled-components';
+import { Icon } from '@deer-ui/core';
 
 const QUERY = graphql`
   query Sidebar {
@@ -23,6 +24,7 @@ const QUERY = graphql`
     site {
       siteMetadata {
         menu
+        defaultShowAllMenu
       }
     }
   }
@@ -57,16 +59,25 @@ const ListGroup = styled.ul`
   padding: 0;
 
   ul {
-    padding: 0 0 0 10px;
+    /* padding: 0 0 0 10px; */
   }
 `;
 
+const docMenuWidth = `200px`;
+
 const Nav = styled.nav`
-  padding: 0 20;
+  /* padding: 0 20px; */
+  background-color: #fafafa;
+  position: fixed;
+  left: 0;
+  top: 50px;
+  bottom: 0;
+  width: ${docMenuWidth};
+  overflow-y: auto;
 `;
 
 const NavGroup = styled(ListGroup)`
-  margin-bottom: 20;
+  /* margin-bottom: 20px; */
 `;
 
 const NavItemBasic = styled.div`
@@ -74,34 +85,47 @@ const NavItemBasic = styled.div`
 `;
 
 const NavGroupTitle = styled(NavItemBasic)`
-  font-size: 17;
-  font-weight: 500;
+  cursor: pointer;
+
+  .title {
+    font-size: 16px;
+    font-weight: 500;
+  }
 `;
 
 const NavGroupMenu = styled(ListGroup)`
+  height: auto;
+  transition: padding 0.2s ease;
+  padding: 5px 0;
+  &._hide {
+    height: 0;
+    opacity: 0;
+    padding: 0;
+    visibility: hidden;
+  }
 `;
 
 const NavGroupMenuItem = styled.li`
-  padding: 8px 20px;
   list-style-type: none;
 
   a {
-    color: nav-link;
+    padding: 8px 10px 8px 30px;
+    color: ${({ theme }) => theme.color['nav-link']};
     display: block;
     transition: base;
     transition-property: color;
-    padding-left: 10;
-    border-left: 3;
+    border-left: 3px;
     border-color: transparent;
 
     &:hover {
-      color: nav-link-hover;
+      color: ${({ theme }) => theme.color['nav-link-hover']};
+      background-color: ${({ theme }) => theme.color['nav-link-hover-bg']};
     }
 
     &.active {
       font-weight: 600;
-      border-left: 3;
-      border-color: primary;
+      border-left: 3px solid ${({ theme }) => theme.color.primary};
+      background-color: ${({ theme }) => theme.color['nav-link-hover-bg']};
     }
   }
 `;
@@ -114,7 +138,51 @@ const sortGroupsWithConfig = (sideMenuFromConfig: string[]) => (a, b) => {
   return diff === 0 ? 0 : (diff < 0 ? -1 : 1);
 };
 
+const NavGroupWrapper = ({ navGroup, defaultShowAllMenu = true }) => {
+  const [isShow, setIsShow] = useState(defaultShowAllMenu);
+  return (
+    <NavGroup key={navGroup.name}>
+      <NavGroupTitle
+        className="layout a-i-c j-c-b"
+        onClick={(e) => {
+          setIsShow(!isShow);
+        }}>
+        <span className="title">
+          {navGroup.name}
+        </span>
+        <Icon n={isShow ? 'chevron-down' : 'chevron-right'} />
+      </NavGroupTitle>
+      <NavGroupMenu className={isShow ? 'show' : '_hide'}>
+        {
+          navGroup.pages.map((page) => (
+            <NavGroupMenuItem key={page.id}>
+              <Link activeClassName="active" to={page.path} ref={(e) => {
+                if (!isShow && e) {
+                  const isActive = e.classList.contains('active');
+                  if (isActive) {
+                    setIsShow(true);
+                  }
+                }
+              }}>
+                {page.context.frontmatter.title}
+              </Link>
+            </NavGroupMenuItem>
+          ))
+        }
+      </NavGroupMenu>
+    </NavGroup>
+  );
+};
+
 export function SideNav() {
+  useEffect(() => {
+    const sideNav = document.querySelector('#sideNav');
+    if (!sideNav) return;
+    const activeSideNavItem = sideNav.querySelector('.active');
+    if (activeSideNavItem) {
+      sideNav.scrollTop = activeSideNavItem.offsetTop;
+    }
+  }, []);
   return (
     <StaticQuery
       query={QUERY}
@@ -128,23 +196,13 @@ export function SideNav() {
         navGroups.sort(sortGroupsWithConfig(data.site.siteMetadata.menu));
 
         return (
-          <Nav>
+          <Nav id="sideNav">
             {
               navGroups.map((navGroup) => (
-                <NavGroup key={navGroup.name}>
-                  <NavGroupTitle>{navGroup.name}</NavGroupTitle>
-                  <NavGroupMenu>
-                    {
-                      navGroup.pages.map((page) => (
-                        <NavGroupMenuItem key={page.id}>
-                          <Link activeClassName="active" to={page.path}>
-                            {page.context.frontmatter.title}
-                          </Link>
-                        </NavGroupMenuItem>
-                      ))
-                    }
-                  </NavGroupMenu>
-                </NavGroup>
+                <NavGroupWrapper
+                  key={navGroup.name}
+                  defaultShowAllMenu={data.site.siteMetadata.defaultShowAllMenu}
+                  navGroup={navGroup} />
               ))
             }
           </Nav>
