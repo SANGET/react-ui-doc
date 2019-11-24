@@ -1,3 +1,3 @@
-# @deer-ui/doc-generator
+# react-ui-doc
 
 Fox ui doc generator.

@@ -1,5 +1,5 @@
 import React from 'react';
-import { LiveConfig } from '@deer-ui/doc-generator/components';
+import { LiveConfig } from 'react-ui-doc/components';
 import styled, * as sc from 'styled-components';
 import * as UICore from '@deer-ui/core';
 import * as EnhanceUI from '@deer-ui/enhance-ui';

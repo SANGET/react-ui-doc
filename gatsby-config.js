@@ -1,7 +1,7 @@
 module.exports = {
   plugins: [
     {
-      resolve: "@deer-ui/doc-generator",
+      resolve: "react-ui-doc",
       options: {
         name: '@deer-ui docs',
         slug: '@deer-ui',
