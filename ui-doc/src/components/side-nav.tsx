@@ -69,13 +69,27 @@ const docMenuWidth = `200px`;
 
 const Nav = styled.nav`
   /* padding: 0 20px; */
-  background-color: #fafafa;
+  background-color: #FFF;
   position: fixed;
   left: 0;
-  top: 50px;
+  top: 52px;
   bottom: 0;
   width: ${docMenuWidth};
+  border-right: 1px solid #eee;
   overflow-y: auto;
+  z-index: 20;
+  transition: transform 0.3s ease;
+
+  ${(c) => c.opened && css`
+    /* color: red; */
+    transform: translateX(0) !important;
+  `}
+
+  @media(max-width: 576px) {
+    transform: translateX(-100%);
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    width: 70%;
+  }
 `;
 
 const NavGroup = styled(ListGroup)`
@@ -90,8 +104,13 @@ const NavGroupTitle = styled(NavItemBasic)`
   cursor: pointer;
 
   .title {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
+    color: ${({ theme }) => theme.color['nav-link']};
+  }
+  
+  .icon {
+    color: #AAA;
   }
 `;
 
@@ -152,7 +171,7 @@ const NavGroupWrapper = ({ navGroup, defaultShowAllMenu = true }) => {
         <span className="title">
           {navGroup.name}
         </span>
-        <Icon n={isShow ? 'chevron-down' : 'chevron-right'} />
+        <Icon n={isShow ? 'chevron-up' : 'chevron-right'} />
       </NavGroupTitle>
       <NavGroupMenu className={isShow ? 'show' : '_hide'}>
         {
@@ -176,7 +195,7 @@ const NavGroupWrapper = ({ navGroup, defaultShowAllMenu = true }) => {
   );
 };
 
-export function SideNav() {
+export function SideNav({ opened }) {
   useEffect(() => {
     const sideNav = document.querySelector('#sideNav');
     if (!sideNav) return;
@@ -196,7 +215,7 @@ export function SideNav() {
   navGroups.sort(sortGroupsWithConfig(data.site.siteMetadata.menu));
 
   return (
-    <Nav id="sideNav">
+    <Nav id="sideNav" opened={opened}>
       {
         navGroups.map((navGroup) => (
           <NavGroupWrapper

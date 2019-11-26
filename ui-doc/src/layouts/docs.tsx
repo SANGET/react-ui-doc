@@ -1,6 +1,8 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import { graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
+import { queryIsMobile } from '@deer-ui/core/utils';
+import { Icon } from '@deer-ui/core/icon';
 import DefaultLayout from './default';
 import { SideNav } from '../components/side-nav';
 import { Article } from '../components/archive';
@@ -10,18 +12,38 @@ import { useColorMode } from '../components/theme';
 const MenuContext = React.createContext();
 
 const MenuProvider = ({ children }) => {
-  const [opened, setOpened] = useState(false);
+  const [opened, setOpened] = useState(!queryIsMobile());
   const toggle = useCallback(() => setOpened((_opened) => !_opened), []);
   const value = useMemo(() => ({ opened, toggle }), [opened, toggle]);
   return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>;
 };
 
 const SideNavWrapper = styled.div`
-  
-  ${(c) => c.opened && css`
-    color: red;
-  `}
+  position: relative;
 `;
+
+const SideNavFloater = styled.div`
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: none;
+  /* height: 60px;
+  width: 60px; */
+  text-align: center;
+  /* background-color: ${(p) => p.theme.color.primary}; */
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  z-index: 111;
+  .icon {
+    color: ${(p) => p.theme.color.primary};
+  }
+  
+  @media(max-width: 576px) {
+    display: flex;
+  }
+`;
+
 const ArticleContent = styled.div`
   width: 70%;
   max-width: 1200px;
@@ -43,8 +65,13 @@ export default class DocLayout extends React.Component {
               {
                 ({ opened, toggle }) => {
                   return (
-                    <SideNavWrapper opened={opened}>
-                      <SideNav />
+                    <SideNavWrapper>
+                      <SideNav opened={opened} />
+                      <SideNavFloater onClick={(e) => {
+                        toggle(!opened);
+                      }}>
+                        <Icon n="compass" style={{ fontSize: 60 }} />
+                      </SideNavFloater>
                     </SideNavWrapper>
                   );
                 }

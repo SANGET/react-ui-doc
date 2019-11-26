@@ -3,8 +3,8 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { Icon } from '@deer-ui/core/icon';
-import { Label } from '@deer-ui/core/label';
 
+import { Grid } from '@deer-ui/core/grid';
 import { DocSearch } from './doc-search';
 import { useColorMode } from './theme';
 
@@ -41,7 +41,6 @@ const QUERY = graphql`
 const Container = styled.div`
   background-color: ${({ theme }) => theme.color.body};
   border-bottom: 1px solid #f7f7f7;
-  padding: 16 0;
 `;
 
 const Header = styled.div`
@@ -67,7 +66,7 @@ const Box = styled.span`
 
 const Nav = styled.nav`
   /* height: 34; */
-  margin-left: 10;
+  margin-left: 10px;
   position: relative;
   display: flex;
 `;
@@ -98,8 +97,17 @@ const HelperItem = styled.li`
 const NavListItem = styled.li`
   color: #000;
   display: inline-block;
-  line-height: 2.8rem;
   color: #666;
+  padding: 0 10px;
+
+  a {
+    line-height: 3.5rem;
+    display: inline-block;
+
+    &.active {
+      border-bottom: 1px solid ${(p) => p.theme.color.primary}
+    }
+  }
 `;
 
 const modeIcons = {
@@ -114,9 +122,7 @@ function getInverseMode(mode) {
 function ColorModeSwitcher() {
   const [mode, setMode] = useColorMode();
   return (
-    <Label onClick={() => { setMode(getInverseMode); }}>
-      <Icon n={modeIcons[mode]} />
-    </Label>
+    <Icon n={modeIcons[mode]} onClick={() => { setMode(getInverseMode); }} />
   );
 }
 
@@ -134,12 +140,14 @@ export function ProjectHeader() {
             <LogoText>{data.site.siteMetadata.title}</LogoText>
           </LogoLink>
           <Nav>
-            <NavList className="layout a-i-c">
-              {data.site.siteMetadata.nav.map(({ title, url }) => (
-                <NavListItem key={title}>
-                  <Link to={url}>{title}</Link>
-                </NavListItem>
-              ))}
+            <NavList>
+              <Grid container alignItem="center">
+                {data.site.siteMetadata.nav.map(({ title, url }) => (
+                  <NavListItem key={title}>
+                    <Link to={url} activeClassName="active">{title}</Link>
+                  </NavListItem>
+                ))}
+              </Grid>
             </NavList>
           </Nav>
           <span className="flex"></span>
@@ -151,15 +159,13 @@ export function ProjectHeader() {
           <Nav>
             <SideHelpers className="layout a-i-c">
               <HelperItem>
-                <Label>
-                  <a
-                    href={data.site.siteMetadata.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Icon n="github" s="b" />
-                  </a>
-                </Label>
+                <a
+                  href={data.site.siteMetadata.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon n="github" s="b" />
+                </a>
               </HelperItem>
               {/* <HelperItem>
                 <ColorModeSwitcher />

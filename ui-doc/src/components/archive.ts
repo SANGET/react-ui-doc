@@ -4,6 +4,7 @@ const docMenuWidth = `200px`;
 
 export const Article = styled.article`
   padding-left: ${docMenuWidth};
+  padding-bottom: 50px;
 
   > p {
     margin-top: 30px;
@@ -198,5 +199,9 @@ export const Article = styled.article`
         margin-top: 0;
       } */
     }
+  }
+
+  @media(max-width: 576px) {
+    padding-left: 0;
   }
 `;
