@@ -4,9 +4,9 @@ module.exports = function config({
   description = '',
   siteUrl = '',
   author = '',
-  docPath = 'src/docs',
+  docPath = 'src/pages/docs',
   pagePath = 'src/pages',
-  imagePath = 'images',
+  imagePath = 'src/images',
   menu = ['Usage'],
   nav = [{ title: 'Usage', url: '/docs/getting-started/' }],
   codeFundProperty = 268,
@@ -40,20 +40,20 @@ module.exports = function config({
           allExtensions: true,
         },
       },
-      // {
-      //   resolve: 'gatsby-plugin-compile-es6-packages',
-      //   options: {
-      //     modules: ['smooth-doc'],
-      //   },
-      // },
+      {
+        resolve: 'gatsby-plugin-compile-es6-packages',
+        options: {
+          modules: ['react-ui-doc'],
+        },
+      },
       'gatsby-plugin-resolve-src',
       'gatsby-plugin-styled-components',
       'gatsby-plugin-react-helmet',
-      {
-        resolve: require.resolve(
-          './src/plugins/gatsby-remark-autolink-headers',
-        ),
-      },
+      // {
+      //   resolve: require.resolve(
+      //     './plugins/gatsby-remark-autolink-headers',
+      //   ),
+      // },
       // {
       //   resolve: `gatsby-plugin-manifest`,
       //   options: {
@@ -93,20 +93,20 @@ module.exports = function config({
           //     resolve: require.resolve('./src/plugins/mdx-transform/index.ts')
           //   }
           // ],
-          gatsbyRemarkPlugins: [
-            {
-              resolve: require.resolve(
-                './src/plugins/gatsby-remark-autolink-headers',
-              ),
-            },
-          ],
+          // gatsbyRemarkPlugins: [
+          //   {
+          //     resolve: require.resolve(
+          //       './plugins/gatsby-remark-autolink-headers',
+          //     ),
+          //   },
+          // ],
         },
       },
-      {
-        resolve: require.resolve(
-          './src/plugins/gatsby-remark-autolink-headers',
-        ),
-      },
+      // {
+      //   resolve: require.resolve(
+      //     './plugins/gatsby-remark-autolink-headers',
+      //   ),
+      // },
       {
         resolve: 'gatsby-source-filesystem',
         options: {
@@ -116,15 +116,15 @@ module.exports = function config({
       },
       'gatsby-transformer-sharp',
       'gatsby-plugin-sharp', // Fonts
-      {
-        resolve: 'gatsby-plugin-web-font-loader',
-        options: {
-          custom: {
-            families: ['Colfax'],
-            url: 'https://www.smooth-code.com/assets/fonts.css',
-          },
-        },
-      },
+      // {
+      //   resolve: 'gatsby-plugin-web-font-loader',
+      //   options: {
+      //     custom: {
+      //       families: ['Colfax'],
+      //       url: 'https://www.smooth-code.com/assets/fonts.css',
+      //     },
+      //   },
+      // },
       'gatsby-plugin-meta-redirect',
       {
         resolve: 'gatsby-plugin-robots-txt',

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { StaticQuery, graphql, Link } from 'gatsby';
+import {
+  StaticQuery, graphql, Link, useStaticQuery
+} from 'gatsby';
 import styled, { css } from 'styled-components';
 import { Icon } from '@deer-ui/core';
 
@@ -183,31 +185,26 @@ export function SideNav() {
       sideNav.scrollTop = activeSideNavItem.offsetTop;
     }
   }, []);
+  const data = useStaticQuery(QUERY);
+
+  const navGroups = pagesToNavGroups(
+    data.allSitePage.edges
+      .map((edge) => edge.node)
+      .filter((node) => node.context && node.context.frontmatter),
+  );
+
+  navGroups.sort(sortGroupsWithConfig(data.site.siteMetadata.menu));
+
   return (
-    <StaticQuery
-      query={QUERY}
-      render={(data) => {
-        const navGroups = pagesToNavGroups(
-          data.allSitePage.edges
-            .map((edge) => edge.node)
-            .filter((node) => node.context && node.context.frontmatter),
-        );
-
-        navGroups.sort(sortGroupsWithConfig(data.site.siteMetadata.menu));
-
-        return (
-          <Nav id="sideNav">
-            {
-              navGroups.map((navGroup) => (
-                <NavGroupWrapper
-                  key={navGroup.name}
-                  defaultShowAllMenu={data.site.siteMetadata.defaultShowAllMenu}
-                  navGroup={navGroup} />
-              ))
-            }
-          </Nav>
-        );
-      }}
-    />
+    <Nav id="sideNav">
+      {
+        navGroups.map((navGroup) => (
+          <NavGroupWrapper
+            key={navGroup.name}
+            defaultShowAllMenu={data.site.siteMetadata.defaultShowAllMenu}
+            navGroup={navGroup} />
+        ))
+      }
+    </Nav>
   );
 }

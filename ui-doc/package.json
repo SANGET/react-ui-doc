@@ -1,21 +1,22 @@
 {
   "name": "react-ui-doc",
-  "version": "0.1.1",
+  "version": "0.1.6-alpha2.0",
   "main": "index.js",
   "repository": "",
   "author": "Sanget",
   "license": "MIT",
   "keywords": [
+    "gatsby-theme",
     "react-doc-generator"
   ],
   "scripts": {
     "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,md,mdx}\"",
     "build": "npm run clean:build; tsc; npm run cp:files",
-    "cp:files": "sh ./scripts/copy-files.sh",
+    "cp:files": "sh ./scripts/copy-files.sh; node ./scripts/copy-files",
     "clean:build": "rm -rf ./dist",
-    "release": "npm run build; npm run publish:dist",
-    "publish:dist": "npm publish ./dist --access public"
+    "release": "npm publish",
+    "publish:dist": "npm publish ./dist"
   },
   "peerDependencies": {
     "gatsby": "^2.17.0",
@@ -28,7 +29,6 @@
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
     "@types/styled-components": "^4.1.19",
-    "react-ui-doc": "*",
     "babel-plugin-styled-components": "^1.10.0",
     "deepmerge": "^4.2.1",
     "fs-extra": "^8.1.0",
@@ -64,6 +64,7 @@
     "@types/react": "^16.9.9",
     "@types/react-dom": "^16.9.2",
     "gatsby": "^2.17.4",
+    "typescript": "3.6.4",
     "react": "^16.10.1",
     "react-dom": "^16.10.1"
   }

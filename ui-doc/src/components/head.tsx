@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, StaticQuery } from 'gatsby';
+import { graphql, StaticQuery, useStaticQuery } from 'gatsby';
 import Seo from './seo';
 
 const QUERY = graphql`
@@ -13,14 +13,10 @@ const QUERY = graphql`
 `;
 
 export function Head({ pageContext }) {
+  const data = useStaticQuery(QUERY);
   return (
-    <StaticQuery
-      query={QUERY}
-      render={(data) => (
-        <Seo
-          title={`${pageContext.frontmatter.title} - ${data.site.siteMetadata.title}`}
-        />
-      )}
+    <Seo
+      title={`${pageContext.frontmatter.title} - ${data.site.siteMetadata.title}`}
     />
   );
 }
