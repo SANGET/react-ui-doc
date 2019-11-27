@@ -1,7 +1,6 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import { graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
-import { queryIsMobile } from '@deer-ui/core/utils';
 import { Icon } from '@deer-ui/core/icon';
 import DefaultLayout from './default';
 import { SideNav } from '../components/side-nav';
@@ -12,7 +11,7 @@ import { useColorMode } from '../components/theme';
 const MenuContext = React.createContext();
 
 const MenuProvider = ({ children }) => {
-  const [opened, setOpened] = useState(!queryIsMobile());
+  const [opened, setOpened] = useState(false);
   const toggle = useCallback(() => setOpened((_opened) => !_opened), []);
   const value = useMemo(() => ({ opened, toggle }), [opened, toggle]);
   return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>;
