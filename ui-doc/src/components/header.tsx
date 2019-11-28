@@ -76,7 +76,6 @@ const NavList = styled.ul`
   padding: 0;
   align-self: flex-end;
   display: flex;
-  overflow-x: auto;
   list-style: none;
   margin: 0rem;
 `;
@@ -98,6 +97,8 @@ const NavListItem = styled.li`
   display: inline-block;
   color: #666;
   padding: 0 10px;
+  margin-bottom: -1px;
+  border-bottom: 1px solid transparent;
 
   a {
     line-height: 3.5rem;
