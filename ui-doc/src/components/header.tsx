@@ -98,12 +98,12 @@ const NavListItem = styled.li`
   color: #666;
   padding: 0 10px;
   margin-bottom: -1px;
-  border-bottom: 1px solid transparent;
 
   a {
     line-height: 3.5rem;
     font-size: 1.2rem;
     display: inline-block;
+    border-bottom: 1px solid transparent;
 
     &.active {
       border-bottom: 1px solid ${(p) => p.theme.color.primary}
