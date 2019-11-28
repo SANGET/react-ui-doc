@@ -3,7 +3,7 @@ import {
   StaticQuery, graphql, Link, useStaticQuery
 } from 'gatsby';
 import styled, { css } from 'styled-components';
-import { Icon } from '@deer-ui/core';
+import { Icon, Grid } from '@deer-ui/core';
 
 const QUERY = graphql`
   query Sidebar {
@@ -164,14 +164,15 @@ const NavGroupWrapper = ({ navGroup, defaultShowAllMenu = true }) => {
   return (
     <NavGroup key={navGroup.name}>
       <NavGroupTitle
-        className="layout a-i-c j-c-b"
         onClick={(e) => {
           setIsShow(!isShow);
         }}>
-        <span className="title">
-          {navGroup.name}
-        </span>
-        <Icon n={isShow ? 'chevron-up' : 'chevron-right'} />
+        <Grid container alignItems="center" justifyContent="between">
+          <span className="title">
+            {navGroup.name}
+          </span>
+          <Icon n={isShow ? 'chevron-up' : 'chevron-right'} />
+        </Grid>
       </NavGroupTitle>
       <NavGroupMenu className={isShow ? 'show' : '_hide'}>
         {

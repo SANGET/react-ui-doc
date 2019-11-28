@@ -43,8 +43,7 @@ const Container = styled.div`
   border-bottom: 1px solid #f7f7f7;
 `;
 
-const Header = styled.div`
-  display: flex;
+const Header = styled(Grid)`
   flex-flow: row nowrap;
   position: relative;
   padding: 0 20px;
@@ -102,6 +101,7 @@ const NavListItem = styled.li`
 
   a {
     line-height: 3.5rem;
+    font-size: 1.2rem;
     display: inline-block;
 
     &.active {
@@ -131,20 +131,27 @@ export function ProjectHeader() {
   return (
     <Container>
       <MainContentWrapper>
-        <Header className="layout a-i-c flex">
-          <LogoLink to="/" className="layout a-i-c">
-            <Img
-              fixed={data.logo.childImageSharp.fixed}
-              alt={data.site.siteMetadata.title}
-            />
-            <LogoText>{data.site.siteMetadata.title}</LogoText>
+        <Header container alignItems="center">
+          <LogoLink to="/">
+            <Grid className="LOGO" container alignItems="center">
+              <Img
+                fixed={data.logo.childImageSharp.fixed}
+                alt={data.site.siteMetadata.title}
+              />
+              <LogoText>{data.site.siteMetadata.title}</LogoText>
+            </Grid>
           </LogoLink>
           <Nav>
             <NavList>
-              <Grid container alignItem="center">
+              <Grid container alignItems="center">
                 {data.site.siteMetadata.nav.map(({ title, url }) => (
                   <NavListItem key={title}>
-                    <Link to={url} activeClassName="active">{title}</Link>
+                    <Link
+                      to={url}
+                      partiallyActive
+                      activeClassName="active">
+                      {title}
+                    </Link>
                   </NavListItem>
                 ))}
               </Grid>
@@ -157,19 +164,21 @@ export function ProjectHeader() {
             )}
           </Box>
           <Nav>
-            <SideHelpers className="layout a-i-c">
-              <HelperItem>
-                <a
-                  href={data.site.siteMetadata.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Icon n="github" s="b" />
-                </a>
-              </HelperItem>
-              {/* <HelperItem>
+            <SideHelpers>
+              <Grid container alignItems="center">
+                <HelperItem>
+                  <a
+                    href={data.site.siteMetadata.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon n="github" s="b" />
+                  </a>
+                </HelperItem>
+                {/* <HelperItem>
                 <ColorModeSwitcher />
               </HelperItem> */}
+              </Grid>
             </SideHelpers>
           </Nav>
         </Header>
