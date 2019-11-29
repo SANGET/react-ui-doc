@@ -177,17 +177,13 @@ export const Code: React.SFC<CodeProps> = ({
         className, style, tokens, getLineProps, getTokenProps
       }) => (
         <pre className={className} style={style}>
-          <Editor>
-            {
-              tokens.map((line, i) => (
-                <div {...getLineProps({ line, key: i })}>
-                  {line.map((token, key) => (
-                    <span {...getTokenProps({ token, key })} />
-                  ))}
-                </div>
-              ))
-            }
-          </Editor>
+          {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
         </pre>
       )}
     </Highlight>

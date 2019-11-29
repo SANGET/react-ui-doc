@@ -1,19 +1,37 @@
 import styled, { css } from 'styled-components';
+import { device } from './common-style';
 
 const docMenuWidth = `200px`;
 
 export const Article = styled.article`
   padding-left: ${docMenuWidth};
   padding-bottom: 50px;
+  width: 70%;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  @media ${device.mobileM} {
+    width: 90%;
+  }
 
   > p {
     margin-top: 30px;
-    font-size: 17px;
+    font-size: 1.25rem;
     line-height: 1.7rem;
-    max-width: 42em;
+    /* max-width: 42em; */
 
     &:first-of-type {
       margin-top: 15px;
+    }
+
+    a {
+      color: ${({ theme }) => theme.color.primary};
+      text-decoration: none;
+
+      :hover {
+        /* color: #CCC; */
+        text-decoration: underline;
+      }
     }
   }
 
@@ -53,7 +71,6 @@ export const Article = styled.article`
   > h2 {
     border-top: 1px;
     border-color: border;
-    margin-top: 44px;
     padding-top: 40px;
     line-height: 1.2rem;
     font-size: 20px;

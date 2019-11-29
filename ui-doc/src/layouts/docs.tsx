@@ -44,13 +44,6 @@ const SideNavFloater = styled.div`
 `;
 
 const ArticleContent = styled.div`
-  width: 70%;
-  max-width: 1200px;
-  margin: 0 auto;
-  
-  @media ${device.mobileM} {
-    width: 90%;
-  }
 `;
 
 export default class DocLayout extends React.Component {
@@ -77,8 +70,8 @@ export default class DocLayout extends React.Component {
               }
             </MenuContext.Consumer>
             <Article>
+              {children}
               <ArticleContent>
-                {children}
               </ArticleContent>
             </Article>
           </MainContentWrapper>
