@@ -4,6 +4,13 @@ module.exports = function config({
   description = '',
   siteUrl = '',
   author = '',
+  slug = '',
+  manifestOptions = {
+    background_color: '#376bfb',
+    theme_color: '#376bfb',
+    display: 'minimal-ui',
+  },
+  favicon = 'src/images/logo.png',
   docPath = 'src/pages/docs',
   pagePath = 'src/pages',
   imagePath = 'src/images',
@@ -49,23 +56,16 @@ module.exports = function config({
       'gatsby-plugin-resolve-src',
       'gatsby-plugin-styled-components',
       'gatsby-plugin-react-helmet',
-      // {
-      //   resolve: require.resolve(
-      //     './plugins/gatsby-remark-autolink-headers',
-      //   ),
-      // },
-      // {
-      //   resolve: `gatsby-plugin-manifest`,
-      //   options: {
-      //     name,
-      //     short_name: slug,
-      //     start_url: '/',
-      //     background_color: '#bd4932',
-      //     theme_color: '#bd4932',
-      //     display: 'minimal-ui',
-      //     icon: 'src/images/logo.png',
-      //   },
-      // },
+      {
+        resolve: `gatsby-plugin-manifest`,
+        options: {
+          ...manifestOptions,
+          name,
+          short_name: slug,
+          start_url: '/',
+          icon: favicon,
+        },
+      },
       {
         resolve: 'gatsby-source-filesystem',
         options: {
@@ -88,25 +88,8 @@ module.exports = function config({
             default: require.resolve('./src/layouts/default.tsx'),
             docs: require.resolve('./src/layouts/docs.tsx'),
           },
-          // rehypePlugins: [
-          //   {
-          //     resolve: require.resolve('./src/plugins/mdx-transform/index.ts')
-          //   }
-          // ],
-          // gatsbyRemarkPlugins: [
-          //   {
-          //     resolve: require.resolve(
-          //       './plugins/gatsby-remark-autolink-headers',
-          //     ),
-          //   },
-          // ],
         },
       },
-      // {
-      //   resolve: require.resolve(
-      //     './plugins/gatsby-remark-autolink-headers',
-      //   ),
-      // },
       {
         resolve: 'gatsby-source-filesystem',
         options: {
@@ -115,16 +98,7 @@ module.exports = function config({
         },
       },
       'gatsby-transformer-sharp',
-      'gatsby-plugin-sharp', // Fonts
-      // {
-      //   resolve: 'gatsby-plugin-web-font-loader',
-      //   options: {
-      //     custom: {
-      //       families: ['Colfax'],
-      //       url: 'https://www.smooth-code.com/assets/fonts.css',
-      //     },
-      //   },
-      // },
+      'gatsby-plugin-sharp',
       'gatsby-plugin-meta-redirect',
       {
         resolve: 'gatsby-plugin-robots-txt',

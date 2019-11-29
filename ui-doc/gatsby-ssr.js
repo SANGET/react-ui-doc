@@ -10,7 +10,8 @@ export const onRenderBody = (
   { algoliaDocSearch },
 ) => {
   setPostBodyComponents([
-    <link key="1" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.1/css/all.min.css" />
+    <link key="1" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.1/css/all.min.css" />,
+    // <link key="2" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css" />
   ]);
   if (algoliaDocSearch) {
     setPostBodyComponents([
