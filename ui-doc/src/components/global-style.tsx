@@ -14,6 +14,8 @@ const LocalGlobalStyle = createGlobalStyle`
   }
   pre {
     line-height: 1.5rem;
+    white-space: pre-wrap;
+    
     .prism-code {
       padding: 15px;
     }
