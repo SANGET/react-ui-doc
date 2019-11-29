@@ -16,7 +16,7 @@ export function Head({ pageContext }) {
   const data = useStaticQuery(QUERY);
   return (
     <Seo
-      title={`${pageContext.frontmatter.title} - ${data.site.siteMetadata.title}`}
+      title={`${pageContext.frontmatter ? pageContext.frontmatter.title : ''} - ${data.site.siteMetadata.title}`}
     />
   );
 }
