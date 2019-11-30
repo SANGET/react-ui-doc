@@ -35,7 +35,6 @@ export const Article = styled.article`
     }
   }
 
-  /* Intro */
   > h1 + p {
     font-size: 18px;
     font-weight: 300;
@@ -62,7 +61,6 @@ export const Article = styled.article`
 
   > h1 {
     font-size: 40px;
-    line-height: 1.1rem;
     font-weight: 600;
     margin-top: 40px;
     margin-bottom: 30px;
@@ -72,7 +70,6 @@ export const Article = styled.article`
     border-top: 1px;
     border-color: border;
     padding-top: 40px;
-    line-height: 1.2rem;
     font-size: 20px;
   }
 
@@ -94,7 +91,6 @@ export const Article = styled.article`
     margin-top: 50px;
     font-weight: 400;
     font-size: 20px;
-    line-height: 1.3rem;
     color: ${({ theme }) => theme.color.subtitle};
   }
 

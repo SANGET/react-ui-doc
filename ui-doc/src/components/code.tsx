@@ -32,6 +32,7 @@ const LivePreview = styled(BaseLivePreview)`
   margin: 25px 0 0;
   border: 1px rgba(0,0,0, 0.1) solid;
   border-image: initial;
+  background-color: ${({ theme }) => theme.color['secondary-bg']};
   border-radius: 3px;
 
   & + ${Editor} {
@@ -43,6 +44,7 @@ const PreviewHelper = styled.div`
   padding: 10px 20px;
   border: 1px solid #EEE;
   border-top: none;
+  background-color: ${({ theme }) => theme.color['secondary-bg']};
   border-radius: 3px;
   /* text-align: right; */
 `;
