@@ -8,8 +8,9 @@ module.exports = {
         github: 'https://github.com/SANGET/react-ui-doc',
         siteUrl: 'https://react-ui-doc.thinkmore.xyz',
         author: 'Alex',
-        menu: [
-          'Getting Started',
+        nav: [
+          { title: 'Docs', url: '/docs/' },
+          { title: 'Showcase', url: '/showcase/' },
         ],
         nav: [{ title: 'Docs', url: '/docs/' }],
         basePath: ".",

@@ -1,6 +1,6 @@
 ---
 title: Usage
-menu: Doc
+menu: Usage
 order: 0
 ---
 
@@ -16,11 +16,34 @@ Because I want to write Docs and Pages by Mdx. Docz is one of the most popular t
 
 ## Installation
 
-```sh
-yarn add react-ui-doc
+Setup npm project first
+
+```shell
+mkdir projectName && cd "$_"
+npm init
 ```
 
-## File Strurcture
+Add dependencise
+
+```sh
+yarn add react-ui-doc gatsby
+```
+
+Add npm scripts in package.json
+
+```js
+  ...
+  "scripts": {
+    "start": "gatsby develop --host 0.0.0.0 --port 5555",
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "serve": "gatsby serve"
+  },
+```
+
+## Add some required files
+
+Files Strurcture
 
 ```treeview
 gatsby-config.js
@@ -149,13 +172,27 @@ src/
 ```md
 ---
 title: homepage
+menu: Index
+order: 0
 ---
-
-import HomePage from '../components/home-page';
 
 # HomePage
 
-<HomePage />
+Any content here.
 ```
 
+## Run up
+
+```shell
+yarn start
+```
+
+And then open `http://localhost:5555`
+
+## Example
+
 More detail see [Alert](/docs/alert/)
+
+## Roadmap
+
+- [ ] To build a cli to generate the file strurcture automately.

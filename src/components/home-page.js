@@ -3,13 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { Grid, Icon } from '@deer-ui/core';
 import Showcase from './showcase';
-import { Box } from './common';
-
-const Container = styled.div`
-  width: 100%;
-  max-width: 1200px;
-  margin: 40px auto 0;
-`;
+import { Box, Container } from './common';
 
 const Wrapper = styled.div`
   /* background-color: #fafafa; */
@@ -68,17 +62,15 @@ const HomePage = () => {
       <Container>
         <MainIntro>
           <UIName>
-          Building Form Group by the easiest way
+          Building UI Doc by React, Gatsby and Mdx
           </UIName>
           <Desc>
-          Deer ui is a Extendable's UI lib base on React
-          , provide FormGenerator to help us to build form logic clearly
-          , and also provide a useful Table to display data
+          React-ui-doc is a tool of UI Doc generation, to help developer to build UI documentation in a quick way
           </Desc>
           <Link
             className="btn theme hola"
             to="/docs/">
-          Getting Started
+            Getting Started
             <Icon n="angle-right" classNames={['ml10']} />
           </Link>
         </MainIntro>
@@ -103,8 +95,7 @@ const HomePage = () => {
               <FeatherIntroItem>
                 <h4>Devices support</h4>
                 <div>
-                Take into account the different between Desktop and Mobile web app
-                , automate detect device and choice the right way to render.
+                Support desktop and mobile devices.
                 </div>
               </FeatherIntroItem>
             </Grid>
@@ -113,10 +104,9 @@ const HomePage = () => {
               sm={6}
               xs={12}>
               <FeatherIntroItem>
-                <h4>SSR support</h4>
+                <h4>Gatsby build</h4>
                 <div>
-                Support both client side add server side render
-                , like Gatsby and Next
+                Base on Gatsby and React.
                 </div>
               </FeatherIntroItem>
             </Grid>
@@ -125,10 +115,9 @@ const HomePage = () => {
               sm={6}
               xs={12}>
               <FeatherIntroItem>
-                <h4>Extendable</h4>
+                <h4>Mdx</h4>
                 <div>
-                Provide the extendable way to organiz each Component's relationship
-                , like @deer-ui/core, @deer-ui/enhance-ui and @deer-ui/admin-scaffold
+                Using Mdx to write pages and doc.
                 </div>
               </FeatherIntroItem>
             </Grid>
