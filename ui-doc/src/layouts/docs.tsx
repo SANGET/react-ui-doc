@@ -18,7 +18,7 @@ const MenuProvider = ({ children }) => {
 };
 
 const SideNavWrapper = styled.div`
-  position: relative;
+  /* position: relative; */
 `;
 
 const SideNavFloater = styled.div`

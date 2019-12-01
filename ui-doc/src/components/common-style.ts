@@ -7,6 +7,7 @@ export const MainContentWrapper = styled.div`
   /* justify-content: space-around; */
   position: relative;
   padding: 0.1px;
+  overflow-x: auto;
 
   ${(prop) => prop.border && css`
     border: 1px solid #f9f9f9;

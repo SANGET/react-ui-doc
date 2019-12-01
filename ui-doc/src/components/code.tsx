@@ -49,6 +49,12 @@ const PreviewHelper = styled.div`
   /* text-align: right; */
 `;
 
+const ToolTip2 = styled(ToolTip)`
+  .icon {
+    color: #999;
+  }
+`;
+
 const globalModules = {
   react: 'React',
 };
@@ -108,7 +114,7 @@ const PreviewHelperWrapper = (props) => {
   return (
     <div>
       <PreviewHelper>
-        <ToolTip
+        <ToolTip2
           clickToClose
           n="code"
           title={`${isShow ? "Hide" : "Show"} code`}
