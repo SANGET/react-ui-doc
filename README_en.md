@@ -1,9 +1,3 @@
----
-title: Usage
-menu: Usage
-order: 0
----
-
 # react-ui-doc
 
 Create UI doc by React, Gatsby and Mdx.
@@ -27,8 +21,6 @@ cd yourProjectName
 yarn start
 ```
 
-------------------
-
 ## Slow start
 
 > Create required files step by step
@@ -40,47 +32,27 @@ mkdir projectName && cd "$_"
 npm init
 ```
 
-Add edit package.json like this:
+Add dependencise
 
-```json
-{
-  "name": "gatsby-react-ui-doc",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+```sh
+yarn add react-ui-doc gatsby
+```
+
+Add npm scripts in package.json
+
+```js
+  ...
   "scripts": {
-    "start": "gatsby develop --host 0.0.0.0 --port 9999",
+    "start": "gatsby develop --host 0.0.0.0 --port 5555",
     "build": "gatsby build",
     "clean": "gatsby clean",
     "serve": "gatsby serve"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "eslint": "^6.5.1",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-react-app": "^5.0.2",
-    "eslint-loader": "3.0.2",
-    "eslint-plugin-flowtype": "4.3.0",
-    "eslint-plugin-import": "2.18.2",
-    "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-react": "7.16.0",
-    "eslint-plugin-react-hooks": "^2.1.2"
-  },
-  "dependencies": {
-    "@mini-code/base-func": "^1.1.0",
-    "gatsby": "^2.18.5",
-    "gatsby-plugin-layout": "^1.1.16",
-    "react-ui-doc": "^1.0.0-rc1.2",
-    "react": "^16.10.1",
-    "react-dom": "^16.10.1"
-  }
-}
 ```
 
-## Add required files
+## Add some required files
 
-Files Strurcture preview
+Files Strurcture
 
 ```treeview
 gatsby-config.js
@@ -104,6 +76,7 @@ Create `gatsby-config.js` file and edit it like this:
 ```js
 module.exports = {
   plugins: [
+    ...plugins,
     {
       resolve: "react-ui-doc",
       options: {

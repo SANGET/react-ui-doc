@@ -1,155 +1,31 @@
 # react-ui-doc
 
-Create UI doc by React, Gatsby and Mdx.
+使用 Gatsby、React 和 Mdx 快速编写 UI 文档用例，或者制作网站。
 
-## Why
+[English](./README_en.md)
 
-So many great tool to help developer to build their own Doc, like Storybook, Gitbook, Docz, why I build again?
+## 动机
 
-Because I want to write Docs and Pages by Mdx. Docz is one of the most popular tool but it too slow to rebuild page. So I take some time to make this tool to build Docs by Mdx.
+已经有很多成熟好用的 UI 文档生成工具，例如 StoryBook、Docz 等，为什么我还要造轮子？
 
-## Installation
+先看看成熟的工具的对比：
 
-```sh
-yarn add react-ui-doc
+- `StoryBook` 支持全语言，但是交互界面已经被固定了，可定制程度不高，并且自有一套 UI 测试编写逻辑，入门门槛比较高。
+- `Docz` 是最早集成了 React、Mdx 编写文档的工具，0 配置门槛，容易上手。但是随着项目的扩展，编译速度极慢，开发体验不好，并且对开发者的 UI 强加 css，过分入侵。
+- `react-styleguidist` 本人最早开始使用的文档生成工具，但问题太多，例如把所有页面写到一页，可扩展性差，所以后续没有关注。
+- `其他` 也有很多优秀工具，不一一列举。
+
+## 快速开始
+
+> 通过 gatsby-cli
+
+先安装 gatsby cli
+
+```shell
+npm i gatsby -g
+gatsby new yourProjectName https://github.com/SANGET/gatsby-react-ui-doc
+cd yourProjectName
+yarn start
 ```
 
-## File Strurcture
-
-```treeview
-gatsby-config.js
-package.json
-src/
-|-- components/
-|   |-- layout.js
-|-- images/
-|   |-- logo.png
-|-- pages/
-|   |-- index.mdx
-|   |-- docs/
-|   |   |-- index.mdx
-|-- etc.
-```
-
-## Add Gatsby config
-
-Create `gatsby-config.js` file and edit it like this:
-
-```js
-module.exports = {
-  plugins: [
-    ...plugins,
-    {
-      resolve: "react-ui-doc",
-      options: {
-        name: 'react-ui-doc', // Project name
-        slug: 'react-ui-doc', // Project slug
-        github: 'https://github.com/SANGET/react-ui-doc',
-        siteUrl: 'https://react-ui-doc.thinkmore.xyz',
-        author: 'You',
-        menu: [
-          'Getting Started',
-        ], // Menu ordering
-        nav: [
-          { title: 'Docs', url: '/docs/' },
-        ], // Side pages navigation
-        docPath: `${__dirname}/src/pages/docs`, // store doc files
-        pagePath: `${__dirname}/src/pages`, // store side pages
-        imagePath: `${__dirname}/src/images`, // store side images, required `logo.png`
-        analytics: {
-          trackingId: `UA-111111111-1`,
-          head: false,
-        },
-        theme: {
-          defaultMode: 'light',
-          colors: {
-            light: {
-              body: '#FFF'
-            },
-            dark: {
-              body: '#000'
-            }
-          }
-        } // theme config
-      },
-    },
-
-    // custom layout config, required
-    {
-      resolve: 'gatsby-plugin-layout',
-      options: {
-        component: require.resolve(`./src/components/layout`),
-      }
-    }
-  ],
-};
-```
-
-## Create costom Layout
-
-Create `src/components/layout.js`
-
-```treeview
-src/
-|-- components/
-|   |-- layout.js
-```
-
-And provide the dependency to Docs, see [https://github.com/FormidableLabs/react-live](https://github.com/FormidableLabs/react-live) for more detail.
-
-```js
-import React from 'react';
-import { LiveConfig } from 'react-ui-doc/components';
-import styled, * as sc from 'styled-components';
-import * as UICore from '@deer-ui/core';
-import * as EnhanceUI from '@deer-ui/enhance-ui';
-import * as UIUtils from '@deer-ui/core/utils';
-import * as BaseFunc from '@mini-code/base-func';
-
-import './style.css';
-
-export default function Layout({ children }) {
-  return (
-    <>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css" />
-      <LiveConfig
-        modules={{
-          react: React,
-          '@deer-ui/core': UICore,
-          '@deer-ui/enhance-ui': EnhanceUI,
-          '@deer-ui/core/utils': UIUtils,
-          '@mini-code/base-func': BaseFunc,
-          'styled-components': Object.assign(styled, sc),
-        }}
-      />
-      {children}
-    </>
-  );
-}
-```
-
-## Create page
-
-So that we can create page by .mdx
-
-Create `src/pages/index.mdx`
-
-```treeview
-src/
-|-- pages/
-|   |-- index.mdx
-```
-
-```md
----
-title: homepage
----
-
-import HomePage from '../components/home-page';
-
-# HomePage
-
-<HomePage />
-```
-
-More detail see [Alert](/docs/alert/)
+然后愉快的开始编写 UI 文档，详情查看[这里](/docs/slow-start.md)

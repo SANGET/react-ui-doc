@@ -1,34 +1,3 @@
----
-title: Usage
-menu: Usage
-order: 0
----
-
-# react-ui-doc
-
-Create UI doc by React, Gatsby and Mdx.
-
-## Why
-
-So many great tool to help developer to build their own Doc, like Storybook, Gitbook, Docz, why I build again?
-
-Because I want to write Docs and Pages by Mdx. Docz is one of the most popular tool but it too slow to rebuild page. So I take some time to make this tool to build Docs by Mdx.
-
-## Quick start
-
-> Via gatsby-cli
-
-Install gatsby cli first
-
-```shell
-npm i gatsby -g
-gatsby new yourProjectName https://github.com/SANGET/gatsby-react-ui-doc
-cd yourProjectName
-yarn start
-```
-
-------------------
-
 ## Slow start
 
 > Create required files step by step
