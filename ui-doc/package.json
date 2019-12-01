@@ -1,6 +1,6 @@
 {
   "name": "react-ui-doc",
-  "version": "1.0.0-rc1.5",
+  "version": "1.0.0-rc1.6",
   "main": "index.js",
   "repository": "",
   "author": "Sanget",
@@ -24,7 +24,7 @@
     "react-dom": "^16.9.0"
   },
   "dependencies": {
-    "@deer-ui/core": "^4.0.0-rc1.1",
+    "@deer-ui/core": "^4.0.0-rc1.2",
     "@mini-code/base-func": "^1.1.0",
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
