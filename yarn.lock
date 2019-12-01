@@ -814,19 +814,29 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@deer-ui/core@^4.0.0-beta2.6":
-  version "4.0.0-beta2.6"
-  resolved "https://registry.yarnpkg.com/@deer-ui/core/-/core-4.0.0-beta2.6.tgz#428c23978804ff8f3522edeb4aaa9b33eebc957b"
-  integrity sha512-/bA8YdkdC0BcOUNn9olVfy30PyvZwAyJuKYmlMuCjPdaajPawrqTh6KnbnCES79Q0oMTBiRjNztW+5t9u1vhjg==
+"@deer-ui/core@^4.0.0-rc1.0":
+  version "4.0.0-rc1.0"
+  resolved "https://registry.yarnpkg.com/@deer-ui/core/-/core-4.0.0-rc1.0.tgz#8ae1b825d7914b01c38477bacb7b56b7e69d1e4f"
+  integrity sha512-DQFCgWf7AJQJ2Jbb9N4V6EFopKaB87tn3lWlC6D1jn8BdsE3C3EYI5qXgx+NUjbK5EPQzUikQRpuSYiAWcSinQ==
   dependencies:
     classnames "^2.2.6"
+    unistore "^3.5.1"
 
-"@deer-ui/enhance-ui@^4.0.0-alpha2.2":
-  version "4.0.0-alpha2.2"
-  resolved "https://registry.yarnpkg.com/@deer-ui/enhance-ui/-/enhance-ui-4.0.0-alpha2.2.tgz#7b14fa767349504bb02824c12d1c2c98cdf5ec28"
-  integrity sha512-w3TRS6JjWtVfoXq0+mWkAgonAQa2kfzwLJr10IqNCgscj4wKDYGV4HO3O6/y/BKw+ZF+53N6K4IN8IbIK6CB7w==
+"@deer-ui/core@^4.0.0-rc1.1":
+  version "4.0.0-rc1.1"
+  resolved "https://registry.yarnpkg.com/@deer-ui/core/-/core-4.0.0-rc1.1.tgz#98bf069f0933bb54aa7c70a4bad5509a628435ef"
+  integrity sha512-xWXkrRfcEvFMHrFX54Vm6fGyx6+Q/bQ4d+unuImyTrfXHO/Sg3/Z+IPYnJIG8PJuvK07CniAmSMjRtRMCK9gYQ==
   dependencies:
     classnames "^2.2.6"
+    unistore "^3.5.1"
+
+"@deer-ui/enhance-ui@^4.0.0-rc1.0":
+  version "4.0.0-rc1.0"
+  resolved "https://registry.yarnpkg.com/@deer-ui/enhance-ui/-/enhance-ui-4.0.0-rc1.0.tgz#7df6d9f724fe2404787e8784116a8dbaf2556ba7"
+  integrity sha512-7y0uvladXQnB84itSBgBfWUtJiwrKZ4ofNgbqH4UpK0qv1yupnHMaKSE6gy+10p60AOsfv1NIjn3Ddu/7+xnyQ==
+  dependencies:
+    classnames "^2.2.6"
+    unistore "^3.5.1"
 
 "@emotion/is-prop-valid@^0.8.1":
   version "0.8.3"
@@ -2077,10 +2087,10 @@
   resolved "https://registry.yarnpkg.com/@mikaelkristiansson/domready/-/domready-1.0.9.tgz#b2b85d8ac7bb2797e577050b61aeaf1b26fbd906"
   integrity sha512-FOAjeRHULSWXd6JMuCDwf3zPbe11kP971+Bufrj9M8rQ33ZMtThgKd6IJgzj6tr/+1Rq3czzLI1LAa9x0IC92w==
 
-"@mini-code/base-func@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@mini-code/base-func/-/base-func-1.0.2.tgz#55e94ee0207d1a893c3460bf9d1b08d925df2b8b"
-  integrity sha512-KKxEUXksbPDePZmT0jjgIsDXDWyswO8+Xdfrs9yy9j9dFM+DHkcaBM9RZAdpEW9xgT9OoBJn/NvxrQGonMJ81w==
+"@mini-code/base-func@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@mini-code/base-func/-/base-func-1.1.0.tgz#8c9e2d12074fa824b88312a7a73a4bd3f86f77ef"
+  integrity sha512-nw+hzOcxDf1u2NFqWlUwhL3ZoaXlPZ2ulbqpdZJR6JpVmk5f00o/R5a6HF1oyGc/oBa5a93p334QBfL4nc+3lw==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -15958,10 +15968,10 @@ unist-util-visit@^1.0.0, unist-util-visit@^1.1.0, unist-util-visit@^1.4.1:
   dependencies:
     unist-util-visit-parents "^2.0.0"
 
-unistore@^3.1.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/unistore/-/unistore-3.5.0.tgz#f4b962e290fc85969627bf0e8209d8bc1cf5313d"
-  integrity sha512-jz1iBRHoA3lT5bq8eEFCZExCt0RbIBp8qsKOb0sMTv8ooCx8H4QE1nfynOJtbgJ651y768KO/5Z180Bn196erQ==
+unistore@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/unistore/-/unistore-3.5.1.tgz#2ce7e17524f8e1390adaf59a88abdeb39e455333"
+  integrity sha512-lagQJ5SeDssjh9tYVwOlPloDCLpn0lvHkvOpf+X4q4thnMJ3uLJcT6YO9cuww8K9qsJOyUWKufdfIF3qUe/9ow==
 
 universal-user-agent@^4.0.0:
   version "4.0.0"
