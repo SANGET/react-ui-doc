@@ -108,7 +108,9 @@ const PreviewHelperWrapper = (props) => {
   return (
     <div>
       <PreviewHelper>
-        <ToolTip n="code"
+        <ToolTip
+          clickToClose
+          n="code"
           title={`${isShow ? "Hide" : "Show"} code`}
           position="right"
           onClick={(e) => {
