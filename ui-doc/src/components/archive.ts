@@ -47,12 +47,6 @@ export const Article = styled.article`
   }
 
   > hr {
-    height: 1px;
-    margin-bottom: -1px;
-    border: 0;
-    border-bottom: 1px;
-    border-color: ${({ theme }) => theme.color.subtitle};
-    background-color: ${({ theme }) => theme.color.subtitle};
     margin-top: 40px;
 
     &:first-child {
