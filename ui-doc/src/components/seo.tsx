@@ -6,7 +6,7 @@ const detailsQuery = graphql`
   query DefaultSEOQuery {
     socialImage: file(relativePath: { eq: "logo.png" }) {
       childImageSharp {
-        fixed(width: 665, height: 200) {
+        fixed(width: 200, height: 200) {
           ...GatsbyImageSharpFixed_noBase64
         }
       }

@@ -52,6 +52,7 @@ export const Article = styled.article`
     border: 0;
     border-bottom: 1px;
     border-color: ${({ theme }) => theme.color.subtitle};
+    background-color: ${({ theme }) => theme.color.subtitle};
     margin-top: 40px;
 
     &:first-child {
@@ -114,7 +115,7 @@ export const Article = styled.article`
     border-radius: 3px;
   }
 
-  > code {
+  code {
     background-color: ${({ theme }) => theme.color['editor-bg']};
     border-radius: 3px;
     color: inherit;

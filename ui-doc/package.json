@@ -1,6 +1,6 @@
 {
   "name": "react-ui-doc",
-  "version": "0.2.0-alpha1.9",
+  "version": "1.0.0-rc1.3",
   "main": "index.js",
   "repository": "",
   "author": "Sanget",
@@ -24,8 +24,8 @@
     "react-dom": "^16.9.0"
   },
   "dependencies": {
-    "@deer-ui/core": "^4.0.0-beta2.6",
-    "@mini-code/base-func": "^1.0.2",
+    "@deer-ui/core": "^4.0.0-rc1.1",
+    "@mini-code/base-func": "^1.1.0",
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
     "@types/styled-components": "^4.1.19",
@@ -53,6 +53,7 @@
     "polished": "^3.2.0",
     "prism-react-renderer": "^1.0.2",
     "prismjs": "^1.16.0",
+    "react-transition-group": "^4.0.1",
     "react-helmet": "^5.2.0",
     "react-live": "^2.2.1",
     "styled-components": "^4.4.0",
