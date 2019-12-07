@@ -34,6 +34,7 @@ const LivePreview = styled(BaseLivePreview)`
   border-image: initial;
   background-color: ${({ theme }) => theme.color['secondary-bg']};
   border-radius: 3px;
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei','Helvetica Neue',Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
 
   & + ${Editor} {
     margin-top: 10px;
@@ -51,7 +52,7 @@ const PreviewHelper = styled.div`
 
 const ToolTip2 = styled(ToolTip)`
   .icon {
-    color: #999;
+    color: #AAA;
   }
 `;
 
@@ -109,8 +110,9 @@ export function usePrismTheme() {
   return getPrismTheme({ mode });
 }
 
-const PreviewHelperWrapper = (props) => {
+const EditorPreviewWrapper = (props) => {
   const [isShow, setIsShow] = useState(false);
+  console.log(props);
   return (
     <div>
       <PreviewHelper>
@@ -125,7 +127,9 @@ const PreviewHelperWrapper = (props) => {
       </PreviewHelper>
       {
         isShow && (
-          <Editor as={LiveEditor} {...props} />
+          <Editor as={LiveEditor} {...props} style={{
+            fontFamily: `Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace`
+          }} />
         )
       }
     </div>
@@ -157,7 +161,7 @@ export const Code: React.SFC<CodeProps> = ({
       >
         <LivePreview />
         <LiveError />
-        <PreviewHelperWrapper />
+        <EditorPreviewWrapper />
         {/* <PreviewHelper>
           <Icon n="code" />
         </PreviewHelper>

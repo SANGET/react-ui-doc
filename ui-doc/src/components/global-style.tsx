@@ -15,6 +15,7 @@ const LocalGlobalStyle = createGlobalStyle`
   pre {
     line-height: 1.5rem;
     white-space: pre-wrap;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     
     .prism-code {
       padding: 15px;
