@@ -814,29 +814,19 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@deer-ui/core@^4.0.0-rc1.0":
-  version "4.0.0-rc1.0"
-  resolved "https://registry.yarnpkg.com/@deer-ui/core/-/core-4.0.0-rc1.0.tgz#8ae1b825d7914b01c38477bacb7b56b7e69d1e4f"
-  integrity sha512-DQFCgWf7AJQJ2Jbb9N4V6EFopKaB87tn3lWlC6D1jn8BdsE3C3EYI5qXgx+NUjbK5EPQzUikQRpuSYiAWcSinQ==
+"@deer-ui/core@^4.0.0-rc4.7":
+  version "4.0.0-rc4.7"
+  resolved "https://registry.yarnpkg.com/@deer-ui/core/-/core-4.0.0-rc4.7.tgz#f2f9c3e0df2dd4d33cce0d3490a8c5a30d1208fb"
+  integrity sha512-o5qtMTzlf7mNXGZRH4OdTVIUbATWIyveF0EKs0vyXxWoVCc2mL73UEjebPKbWuzeDPi9AnBhk/tGlOiuFWX8Lw==
   dependencies:
     classnames "^2.2.6"
-    unistore "^3.5.1"
 
-"@deer-ui/core@^4.0.0-rc1.1":
-  version "4.0.0-rc1.1"
-  resolved "https://registry.yarnpkg.com/@deer-ui/core/-/core-4.0.0-rc1.1.tgz#98bf069f0933bb54aa7c70a4bad5509a628435ef"
-  integrity sha512-xWXkrRfcEvFMHrFX54Vm6fGyx6+Q/bQ4d+unuImyTrfXHO/Sg3/Z+IPYnJIG8PJuvK07CniAmSMjRtRMCK9gYQ==
+"@deer-ui/enhance-ui@^4.0.0-rc2.0":
+  version "4.0.0-rc2.0"
+  resolved "https://registry.yarnpkg.com/@deer-ui/enhance-ui/-/enhance-ui-4.0.0-rc2.0.tgz#fdd0f0f1e429e6314c8c11eda055c1ff09d0cfde"
+  integrity sha512-JzBHSV9sVTz7zgBbowRfVOplndSQj5PHQHkG17CxEZo3qjSjh06e/rM2dT/80BT88/E7Mw35zFaJL5nvWKfz8A==
   dependencies:
     classnames "^2.2.6"
-    unistore "^3.5.1"
-
-"@deer-ui/enhance-ui@^4.0.0-rc1.0":
-  version "4.0.0-rc1.0"
-  resolved "https://registry.yarnpkg.com/@deer-ui/enhance-ui/-/enhance-ui-4.0.0-rc1.0.tgz#7df6d9f724fe2404787e8784116a8dbaf2556ba7"
-  integrity sha512-7y0uvladXQnB84itSBgBfWUtJiwrKZ4ofNgbqH4UpK0qv1yupnHMaKSE6gy+10p60AOsfv1NIjn3Ddu/7+xnyQ==
-  dependencies:
-    classnames "^2.2.6"
-    unistore "^3.5.1"
 
 "@emotion/is-prop-valid@^0.8.1":
   version "0.8.3"
@@ -15967,11 +15957,6 @@ unist-util-visit@^1.0.0, unist-util-visit@^1.1.0, unist-util-visit@^1.4.1:
   integrity sha512-AvGNk7Bb//EmJZyhtRUnNMEpId/AZ5Ph/KUpTI09WHQuDZHKovQ1oEv3mfmKpWKtoMzyMC4GLBm1Zy5k12fjIw==
   dependencies:
     unist-util-visit-parents "^2.0.0"
-
-unistore@^3.5.1:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/unistore/-/unistore-3.5.1.tgz#2ce7e17524f8e1390adaf59a88abdeb39e455333"
-  integrity sha512-lagQJ5SeDssjh9tYVwOlPloDCLpn0lvHkvOpf+X4q4thnMJ3uLJcT6YO9cuww8K9qsJOyUWKufdfIF3qUe/9ow==
 
 universal-user-agent@^4.0.0:
   version "4.0.0"
