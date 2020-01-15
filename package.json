@@ -16,7 +16,7 @@
   "license": "MIT",
   "devDependencies": {
     "@mini-code/base-func": "^1.1.0",
-    "@deer-ui/core": "^4.0.0-rc4.7",
+    "@deer-ui/core": "^4.0.0-rc5.5",
     "@deer-ui/enhance-ui": "^4.0.0-rc2.0",
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
