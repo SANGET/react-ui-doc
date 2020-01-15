@@ -814,10 +814,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@deer-ui/core@^4.0.0-rc4.7":
-  version "4.0.0-rc4.7"
-  resolved "https://registry.yarnpkg.com/@deer-ui/core/-/core-4.0.0-rc4.7.tgz#f2f9c3e0df2dd4d33cce0d3490a8c5a30d1208fb"
-  integrity sha512-o5qtMTzlf7mNXGZRH4OdTVIUbATWIyveF0EKs0vyXxWoVCc2mL73UEjebPKbWuzeDPi9AnBhk/tGlOiuFWX8Lw==
+"@deer-ui/core@^4.0.0-rc5.6":
+  version "4.0.0-rc5.6"
+  resolved "https://registry.yarnpkg.com/@deer-ui/core/-/core-4.0.0-rc5.6.tgz#8b7aa874d83726fee2f3186f5602e71d35098790"
+  integrity sha512-fB4QfsGevoMnXl8V62OvX4O2jfPk30ZDWA2yJTS4JRG9WfyleUMOABx1nzddU5qhHoLPn8YyZJjVMt73ltO1nA==
   dependencies:
     classnames "^2.2.6"
 
