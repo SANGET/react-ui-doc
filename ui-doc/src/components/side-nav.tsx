@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {
-  StaticQuery, graphql, Link, useStaticQuery
+  StaticQuery, graphql, useStaticQuery
 } from 'gatsby';
 import styled, { css } from 'styled-components';
 import { Icon, Grid } from '@deer-ui/core';
+import Link from './link';
 
 const QUERY = graphql`
   query Sidebar {

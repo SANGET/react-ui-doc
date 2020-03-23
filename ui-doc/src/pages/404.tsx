@@ -9,7 +9,6 @@ const Not = styled.div`
 `;
 
 const NotFound = (props) => {
-  console.log(props);
   return (
     <DefaultLayout {...props}>
       <Grid

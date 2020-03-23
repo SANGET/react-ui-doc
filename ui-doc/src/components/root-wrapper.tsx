@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { ColorThemeProvider } from './theme';
 import { GlobalStyle } from './global-style';

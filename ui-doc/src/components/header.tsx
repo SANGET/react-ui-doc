@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { Icon } from '@deer-ui/core/icon';
@@ -7,6 +7,7 @@ import { Icon } from '@deer-ui/core/icon';
 import { Grid } from '@deer-ui/core/grid';
 import { DocSearch } from './doc-search';
 import { useColorMode } from './theme';
+import Link from './link';
 
 import { MainContentWrapper } from './common-style';
 

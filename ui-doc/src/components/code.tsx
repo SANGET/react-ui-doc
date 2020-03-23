@@ -112,7 +112,6 @@ export function usePrismTheme() {
 
 const EditorPreviewWrapper = (props) => {
   const [isShow, setIsShow] = useState(false);
-  console.log(props);
   return (
     <div>
       <PreviewHelper>
