@@ -64,7 +64,7 @@
     "@types/node": "^13.9.3",
     "@types/react": "^16.9.25",
     "@types/react-dom": "^16.9.5",
-    "gatsby": "^2.17.4",
+    "gatsby": "^4.25.7",
     "typescript": "3.8.3",
     "react": "^16.10.1",
     "react-dom": "^16.10.1"
